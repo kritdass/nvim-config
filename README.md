@@ -1,6 +1,6 @@
 ![Neovim dashboard](screenshots/dashboard.png)
 
-This repository stores my Neovim configuration meant for general programming use, inspired by [LazyVim](https://www.lazyvim.org). This is mainly aimed towards Linux and Neovim 0.10 but may work otherwise.
+This repository stores my Neovim configuration meant for general programming use, inspired by [LazyVim](https://www.lazyvim.org). This is mainly aimed towards Linux and Neovim 0.9/0.10 but may work otherwise.
 
 ## Features & Plugins
 

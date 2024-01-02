@@ -1,4 +1,4 @@
--- :fennel:1704135981
+-- :fennel:1704223019
 vim.cmd("colorscheme onedark_vivid")
 do end (vim.opt)["number"] = true
 vim.opt["relativenumber"] = true
@@ -38,6 +38,10 @@ vim.opt["updatetime"] = 300
 do end (vim.opt.shortmess):append("c")
 do end (vim.opt)["scrolloff"] = 8
 vim.opt["sidescrolloff"] = 8
+if (vim.fn.has("nvim-0.10") == 1) then
+  vim.opt["smoothscroll"] = true
+else
+end
 vim.opt["splitkeep"] = "screen"
 vim.opt["splitbelow"] = true
 vim.opt["splitright"] = true

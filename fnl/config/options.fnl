@@ -1,4 +1,4 @@
-(import-macros {: set! : set+ : color! : g!} :hibiscus.vim)
+(import-macros {: set! : set+ : color!} :hibiscus.vim)
 (import-macros {: vim!} :macros)
 
 (color! :onedark_vivid)
@@ -53,6 +53,9 @@
 
 (set! :scrolloff 8)
 (set! :sidescrolloff 8)
+
+(when (= ((vim! :fn.has) :nvim-0.10) 1)
+  (set! :smoothscroll))
 
 (set! :splitkeep :screen)
 (set! :splitbelow)

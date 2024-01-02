@@ -1,4 +1,4 @@
--- :fennel:1704135981
+-- :fennel:1704217300
 local function _1_()
   local cmp = require("cmp")
   local config = cmp.get_config()
