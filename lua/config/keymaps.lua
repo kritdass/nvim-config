@@ -1,4 +1,4 @@
--- :fennel:1704135981
+-- :fennel:1704157672
 do
   local wk = require("which-key")
   wk.register({t = {name = "+terminal"}, x = {name = "+trouble"}, h = {name = "+git"}, b = {name = "+buffer", s = "+swap"}, f = {name = "+find"}, q = {name = "+quit"}, u = {name = "+toggle"}, ["<tab>"] = {name = "+tab"}, w = {name = "+window"}}, {prefix = "<leader>"})
@@ -52,7 +52,7 @@ do
   vim.keymap.set({"n"}, "zM", ufo.closeAllFolds, {desc = "Close all folds", silent = true})
 end
 vim.keymap.set({"n"}, "<leader>ff", "<cmd>Telescope find_files<cr>", {desc = "Find files", silent = true})
-vim.keymap.set({"n"}, "<leader>fc", "<cmd>Telescope find_files dir=$HOME/.config/nvim<cr>", {desc = "Config files", silent = true})
+vim.keymap.set({"n"}, "<leader>fc", "<cmd>Telescope find_files cwd=$HOME/.config/nvim<cr>", {desc = "Config files", silent = true})
 vim.keymap.set({"n"}, "<leader>fs", "<cmd>Telescope colorscheme enable_preview=true<cr>", {desc = "Find colorscheme", silent = true})
 vim.keymap.set({"n"}, "<leader>fr", "<cmd>Telescope oldfiles<cr>", {desc = "Recent files", silent = true})
 vim.keymap.set({"n"}, "<leader>fu", "<cmd>Telescope undo<cr>", {desc = "Undo history", silent = true})

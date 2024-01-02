@@ -80,7 +80,7 @@
   (map! [:n] :zM ufo.closeAllFolds "Close all folds"))
 
 (map! [:n] :<leader>ff "<cmd>Telescope find_files<cr>" "Find files")
-(map! [:n] :<leader>fc "<cmd>Telescope find_files dir=$HOME/.config/nvim<cr>"
+(map! [:n] :<leader>fc "<cmd>Telescope find_files cwd=$HOME/.config/nvim<cr>"
       "Config files")
 
 (map! [:n] :<leader>fs "<cmd>Telescope colorscheme enable_preview=true<cr>"

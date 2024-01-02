@@ -1,10 +1,10 @@
 ![Neovim dashboard](screenshots/dashboard.png)
 
-This repository stores my Neovim configuration meant for general programming use, inspired by [LazyVim](https://www.lazyvim.org). This is mainly aimed towards Linux and Neovim 0.9.x but may work otherwise.
+This repository stores my Neovim configuration meant for general programming use, inspired by [LazyVim](https://www.lazyvim.org). This is mainly aimed towards Linux and Neovim 0.10 but may work otherwise.
 
 ## Features & Plugins
 
-- 🚀 Fast (70–80 ms startup time)
+- 🚀 Fast (50-70 ms startup time)
 - 🍊 Written in [Fennel](https://fennel-lang.org) via [tangerine](https://github.com/udayvir-singh/tangerine.nvim)
 - 💤 Lazy-loading and package management with [lazy](https://github.com/folke/lazy.nvim)
 - ⚙️  Automatic LSP server setup with [Mason](https://github.com/williamboman/mason.nvim) and [mason-lspconfig](https://github.com/williamboman/mason-lspconfig.nvim)
@@ -19,7 +19,8 @@ This repository stores my Neovim configuration meant for general programming use
 - 🛑 Git integration with [GitSigns](https://github.com/lewis6991/gitsigns.nvim)
 - 💻 Terminal integration with [toggleterm](https://github.com/akinsho/toggleterm.nvim) and [smart-splits](https://github.com/mrjones2014/smart-splits.nvim)
 - 🛸 Better folding with [nvim-ufo](https://github.com/kevinhwang91/nvim-ufo)
-- 📝 Code outline with [Aerial](https://github.com/stevearc/aerial.nvim)
+- 🗺️ Code outline with [Aerial](https://github.com/stevearc/aerial.nvim)
+- 📝 Note-taking with [Neorg](https://github.com/nvim-neorg/neorg)
 - 🖇️  Multiple cursor support with [multicursors](https://github.com/smoka7/multicursors.nvim)
 - ⌨️ Key maps registered with [WhichKey](https://github.com/folke/which-key.nvim)
 
