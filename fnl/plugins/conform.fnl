@@ -4,6 +4,7 @@
        {:event [:BufReadPost :BufNewFile]
         :opts {:formatters_by_ft {:fish [:fish_indent]
                                   :fennel [:fnlfmt]
+                                  :haskell [:fourmolu]
                                   :markdown [:mdformat]
                                   :clojure [:cljstyle]
                                   :_ [:trim_whitespace :trim_newlines]}

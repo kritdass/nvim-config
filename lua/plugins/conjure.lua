@@ -1,4 +1,4 @@
--- :fennel:1704217300
+-- :fennel:1704310364
 local function _1_()
   local cmp = require("cmp")
   local config = cmp.get_config()
@@ -13,4 +13,4 @@ local function _3_()
   vim.g["conjure#debug"] = true
   return nil
 end
-return {"Olical/conjure", ft = {"clojure", "fennel", "lisp"}, dependencies = {{"PaterJason/cmp-conjure", config = _1_}}, config = _2_, init = _3_}
+return {"Olical/conjure", ft = {"clojure", "fennel"}, dependencies = {{"PaterJason/cmp-conjure", config = _1_}}, config = _2_, init = _3_}

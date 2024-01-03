@@ -11,6 +11,7 @@
                   ((require! :telescope :load_extension) :fzf)
                   ((require! :telescope :load_extension) :undo)
                   ((require! :telescope :load_extension) :yank_history)
+                  ((require! :telescope :load_extension) :ht)
                   ((require! :telescope :setup) {:defaults {:mappings {:i {:<esc> (require! :telescope.actions
                                                                                             :close)
                                                                            :<C-e> (require! :telescope.actions

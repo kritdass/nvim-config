@@ -2,7 +2,7 @@
 (import-macros {: g!} :hibiscus.vim)
 
 (plug! :Olical/conjure
-       {:ft [:clojure :fennel :lisp]
+       {:ft [:clojure :fennel]
         :dependencies [(plug! :PaterJason/cmp-conjure
                               {:config (fn []
                                          (let [cmp (require :cmp)
