@@ -1,4 +1,4 @@
--- :fennel:1704311771
+-- :fennel:1704738001
 vim.g["slimv_swank_cmd"] = ":tabnew | term ros run --eval '(ql:quickload :swank)' --eval '(swank:create-server :dont-close t)'"
 vim.cmd("colorscheme onedark_vivid")
 do end (vim.opt)["number"] = true
@@ -6,9 +6,9 @@ vim.opt["relativenumber"] = true
 vim.opt["cursorline"] = true
 vim.opt["laststatus"] = 3
 vim.opt["signcolumn"] = "yes"
-vim.opt["tabstop"] = 2
-vim.opt["softtabstop"] = 2
-vim.opt["shiftwidth"] = 2
+vim.opt["tabstop"] = 4
+vim.opt["softtabstop"] = 4
+vim.opt["shiftwidth"] = 4
 vim.opt["shiftround"] = true
 vim.opt["smartindent"] = true
 vim.opt["expandtab"] = true

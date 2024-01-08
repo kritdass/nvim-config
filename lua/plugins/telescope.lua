@@ -1,4 +1,4 @@
--- :fennel:1704232133
+-- :fennel:1704312331
 local function _1_()
   require("telescope").load_extension("fzf")
   require("telescope").load_extension("undo")

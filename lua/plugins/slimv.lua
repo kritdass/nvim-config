@@ -1,2 +1,2 @@
--- :fennel:1704306567
+-- :fennel:1704312331
 return {"kovisoft/slimv", ft = {"lisp"}}

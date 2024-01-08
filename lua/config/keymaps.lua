@@ -1,4 +1,4 @@
--- :fennel:1704157672
+-- :fennel:1704405130
 do
   local wk = require("which-key")
   wk.register({t = {name = "+terminal"}, x = {name = "+trouble"}, h = {name = "+git"}, b = {name = "+buffer", s = "+swap"}, f = {name = "+find"}, q = {name = "+quit"}, u = {name = "+toggle"}, ["<tab>"] = {name = "+tab"}, w = {name = "+window"}}, {prefix = "<leader>"})
