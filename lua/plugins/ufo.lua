@@ -1,4 +1,4 @@
--- :fennel:1704135981
+-- :fennel:1705787927
 local function handler(virt_text, lnum, end_lnum, width, truncate)
   local new_virt_text = {}
   local suffix = string.format(" \243\176\129\130 %d ", (end_lnum - lnum))

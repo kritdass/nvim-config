@@ -1,2 +1,2 @@
--- :fennel:1704135981
+-- :fennel:1705787927
 return {"folke/flash.nvim", event = "VeryLazy", opts = {}}

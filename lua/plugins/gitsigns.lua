@@ -1,4 +1,4 @@
--- :fennel:1704135981
+-- :fennel:1705787927
 local function _1_(buffer)
   local gs = package.loaded.gitsigns
   local map

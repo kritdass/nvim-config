@@ -1,2 +1,2 @@
--- :fennel:1704135981
+-- :fennel:1705787927
 return {"windwp/nvim-autopairs", event = "InsertEnter", opts = {}}

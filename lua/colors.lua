@@ -1,2 +1,2 @@
--- :fennel:1704135981
+-- :fennel:1705787927
 return {blue = "#61afef", green = "#98c379", purple = "#c678dd", cyan = "#56b6c2", red = "#e06c75", yellow = "#e5c07b", fg = "#abb2bf", bg = "#282c34", gray = "#3e4452", gray2 = "#828997", black = "#2c323c", white = "#fffff7"}

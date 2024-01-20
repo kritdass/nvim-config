@@ -1,4 +1,4 @@
--- :fennel:1704135981
+-- :fennel:1705787927
 do
   local augid_1_ = vim.api.nvim_create_augroup("highlight-yank", {clear = true})
   local function _2_()

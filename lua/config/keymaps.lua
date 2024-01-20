@@ -1,4 +1,4 @@
--- :fennel:1704405130
+-- :fennel:1705787927
 do
   local wk = require("which-key")
   wk.register({t = {name = "+terminal"}, x = {name = "+trouble"}, h = {name = "+git"}, b = {name = "+buffer", s = "+swap"}, f = {name = "+find"}, q = {name = "+quit"}, u = {name = "+toggle"}, ["<tab>"] = {name = "+tab"}, w = {name = "+window"}}, {prefix = "<leader>"})
@@ -23,6 +23,7 @@ vim.keymap.set({"n"}, "<leader>tv", "<cmd>ToggleTerm direction=vertical size=70<
 vim.keymap.set({"n"}, "<leader>t-", "<cmd>ToggleTerm direction=horizontal<cr>", {desc = "Horizontal terminal", silent = true})
 vim.keymap.set({"n"}, "<leader>t\\", "<cmd>ToggleTerm direction=vertical size=70<cr>", {desc = "Vertical terminal", silent = true})
 vim.keymap.set({"n"}, "<leader>tf", "<cmd>ToggleTerm direction=float<cr>", {desc = "Floating terminal", silent = true})
+vim.keymap.set({"n"}, "<leader>tt", "<cmd>ToggleTerm direction=tab<cr>", {desc = "Tab terminal", silent = true})
 vim.keymap.set({"t"}, "<C-e>", "<C-\\><C-n>", {desc = "Enter normal mode", silent = true})
 vim.keymap.set({"n", "i", "x", "s", "t"}, "<C-\\>", "<cmd>ToggleTermToggleAll<cr>", {desc = "Toggle terminal", silent = true})
 vim.keymap.set({"n"}, "<leader>xx", "<cmd>TroubleToggle<cr>", {desc = "Trouble", silent = true})

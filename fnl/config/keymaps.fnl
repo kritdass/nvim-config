@@ -45,6 +45,8 @@
 (map! [:n] :<leader>tf "<cmd>ToggleTerm direction=float<cr>"
       "Floating terminal")
 
+(map! [:n] :<leader>tt "<cmd>ToggleTerm direction=tab<cr>" "Tab terminal")
+
 (map! [:t] :<C-e> "<C-\\><C-n>" "Enter normal mode")
 (map! [:nixst] "<C-\\>" :<cmd>ToggleTermToggleAll<cr> "Toggle terminal")
 

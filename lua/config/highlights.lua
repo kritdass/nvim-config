@@ -1,4 +1,4 @@
--- :fennel:1704135981
+-- :fennel:1705787927
 local colors = require("colors")
 vim.api.nvim_set_hl(0, "AlphaHeader", {fg = colors.blue})
 vim.api.nvim_set_hl(0, "AlphaShortcuts", {fg = colors.purple})

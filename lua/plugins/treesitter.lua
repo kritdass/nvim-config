@@ -1,4 +1,4 @@
--- :fennel:1704135981
+-- :fennel:1705787927
 local function _1_(plugin)
   require("lazy.core.loader").add_to_rtp(plugin)
   return require("nvim-treesitter.query_predicates")
