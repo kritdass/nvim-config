@@ -68,13 +68,20 @@
                         :hrsh7th/cmp-path
                         :hrsh7th/cmp-emoji
                         :chrisgrieser/cmp_yanky
-                        :L3MON4D3/LuaSnip
+                        (plug! :L3MON4D3/LuaSnip
+                               {:build "make install_jsregexp"
+                                :dependencies [(plug! :rafamadriz/friendly-snippets
+                                                      {:config (fn []
+                                                                 ((require! :luasnip.loaders.from_vscode
+                                                                            :lazy_load)))})]})
                         :saadparwaiz1/cmp_luasnip
                         :onsails/lspkind.nvim
                         (plug! :Exafunction/codeium.nvim
                                {:cmd :Codeium :build ":Codeium Auth" :opts {}})]
          :config (fn []
-                   (let [cmp (require :cmp)]
+                   (let [cmp (require :cmp)
+                         luasnip (require :luasnip)
+                         lspkind (require :lspkind)]
                      (cmp.setup {:snippet {:expand (fn [args]
                                                      ((require! :luasnip
                                                                 :lsp_expand) args.body))}
@@ -83,8 +90,7 @@
                                                        :side_padding 0}}
                                  :formatting {:fields [:kind :abbr :menu]
                                               :format (fn [entry vim-item]
-                                                        (let [lspkind (require :lspkind)
-                                                              cmp-format (lspkind.cmp_format {:mode :symbol_text
+                                                        (let [cmp-format (lspkind.cmp_format {:mode :symbol_text
                                                                                               :symbol_map {:Codeium ""}})
                                                               kind (cmp-format entry
                                                                                vim-item)
@@ -104,7 +110,22 @@
                                                                        "")
                                                                    ")"))
                                                           kind))}
-                                 :mapping (cmp.mapping.preset.insert {:<Tab> (cmp.mapping.select_next_item)
+                                 :mapping (cmp.mapping.preset.insert {:<Tab> (cmp.mapping (fn [fallback]
+                                                                                            (if (cmp.visible)
+                                                                                                (cmp.select_next_item)
+                                                                                                (luasnip.expand_or_jumpable)
+                                                                                                (luasnip.expand_or_jump)
+                                                                                                (fallback)))
+                                                                                          [:i
+                                                                                           :s])
+                                                                      :<S-Tab> (cmp.mapping (fn [fallback]
+                                                                                              (if (cmp.visible)
+                                                                                                  (cmp.select_prev_item)
+                                                                                                  (luasnip.jumpable -1)
+                                                                                                  (luasnip.jump -1)
+                                                                                                  (fallback)))
+                                                                                            [:i
+                                                                                             :s])
                                                                       :<C-b> (cmp.mapping.scroll_docs -4)
                                                                       :<C-f> (cmp.mapping.scroll_docs 4)
                                                                       :<C-Space> (cmp.mapping.complete)
