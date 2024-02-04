@@ -1,4 +1,4 @@
--- :fennel:1707013693
+-- :fennel:1707070422
 vim.g["slimv_swank_cmd"] = ":tabnew | term ros run --eval '(ql:quickload :swank)' --eval '(swank:create-server :dont-close t)'"
 vim.cmd("colorscheme onedark_vivid")
 do end (vim.opt)["number"] = true

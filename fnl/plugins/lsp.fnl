@@ -48,10 +48,19 @@
                                        "Goto type definition")
                                   (map :n :gr
                                        "<cmd>lua vim.lsp.buf.references()<cr>"
-                                       "Goto references")))
-                              [:BufWritePre :desc "Format on save"]
-                              "*"
-                              (vim! :lsp.buf.format)]))})
+                                       "Goto references")
+                                  (map :n :<leader>cr
+                                       "<cmd>lua vim.lsp.buf.rename()<cr>"
+                                       :Rename)
+                                  (map :n :<leader>cf
+                                       "<cmd>lua vim.lsp.buf.format({async = true})<cr>"
+                                       :Format)
+                                  (map :n :<leader>ca
+                                       "<cmd>lua vim.lsp.buf.code_action()<cr>"
+                                       "Code actions")
+                                  (map :n :<leader>ct
+                                       "<cmd>lua vim.lsp.buf.type_definition()<cr>"
+                                       "Type definition")))]))})
  (plug! :hrsh7th/nvim-cmp
         {:event :InsertEnter
          :dependencies [:hrsh7th/cmp-nvim-lsp

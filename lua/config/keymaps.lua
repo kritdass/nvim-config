@@ -1,30 +1,31 @@
--- :fennel:1707018180
+-- :fennel:1707073500
 do
   local wk = require("which-key")
-  wk.register({t = {name = "+terminal"}, x = {name = "+trouble"}, h = {name = "+git"}, b = {name = "+buffer", s = "+swap"}, f = {name = "+find"}, q = {name = "+quit"}, u = {name = "+toggle"}, ["<tab>"] = {name = "+tab"}, w = {name = "+window"}}, {prefix = "<leader>"})
+  wk.register({t = {name = "+terminal"}, x = {name = "+trouble"}, h = {name = "+git"}, b = {name = "+buffer", s = "+swap"}, f = {name = "+find"}, q = {name = "+quit"}, u = {name = "+toggle"}, ["<tab>"] = {name = "+tab"}, w = {name = "+window"}, c = {name = "+lsp"}}, {prefix = "<leader>"})
   wk.register({z = {name = "+fold"}, g = {name = "+goto"}, ["]"] = {name = "+next"}, ["["] = {name = "+prev"}})
 end
 vim.keymap.set({"n", "i", "x", "s"}, "<C-s>", "<cmd>:silent w<cr><esc>", {desc = "Save file", silent = true})
 vim.keymap.set({"n"}, "<leader>s", "<cmd>:silent w<cr><esc>", {desc = "Save file", silent = true})
 vim.keymap.set({"n"}, "<leader>l", "<cmd>Lazy<cr>", {desc = "Lazy", silent = true})
 vim.keymap.set({"n"}, "<leader>m", "<cmd>Mason<cr>", {desc = "Mason", silent = true})
-vim.keymap.set({"n"}, "<leader>o", "<cmd>Neotree document_symbols<cr>", {desc = "Symbols outline", silent = true})
+vim.keymap.set({"n"}, "<leader>o", "<cmd>Neotree document_symbols toggle<cr>", {desc = "Outline", silent = true})
+vim.keymap.set({"n", "t"}, "<leader>g", "<cmd>Lazygit<cr>", {desc = "Launch lazygit", silent = true})
 do
   local terminal = require("toggleterm.terminal").Terminal
-  local lazygit = terminal:new({cmd = "lazygit", close_on_exit = true, direction = "tab", dir = "git_dir"})
+  local lazygit = terminal:new({cmd = "lazygit", close_on_exit = true, direction = "tab", dir = "git_dir", name = "lazygit"})
   local function _1_()
     return lazygit:toggle()
   end
   vim.api.nvim_create_user_command("Lazygit", _1_, {force = true})
 end
-vim.keymap.set({"n"}, "<leader>tg", "<cmd>Lazygit<cr>", {desc = "Launch lazygit", silent = true})
+vim.keymap.set({"n", "t"}, "<leader>tg", "<cmd>Lazygit<cr>", {desc = "Launch lazygit", silent = true})
 vim.keymap.set({"n"}, "<leader>th", "<cmd>ToggleTerm direction=horizontal<cr>", {desc = "Horizontal terminal", silent = true})
 vim.keymap.set({"n"}, "<leader>tv", "<cmd>ToggleTerm direction=vertical size=70<cr>", {desc = "Vertical terminal", silent = true})
 vim.keymap.set({"n"}, "<leader>t-", "<cmd>ToggleTerm direction=horizontal<cr>", {desc = "Horizontal terminal", silent = true})
 vim.keymap.set({"n"}, "<leader>t\\", "<cmd>ToggleTerm direction=vertical size=70<cr>", {desc = "Vertical terminal", silent = true})
 vim.keymap.set({"n"}, "<leader>tf", "<cmd>ToggleTerm direction=float<cr>", {desc = "Floating terminal", silent = true})
 vim.keymap.set({"n"}, "<leader>tt", "<cmd>ToggleTerm direction=tab<cr>", {desc = "Tab terminal", silent = true})
-vim.keymap.set({"t"}, "<C-e>", "<C-\\><C-n>", {desc = "Enter normal mode", silent = true})
+vim.keymap.set({"t"}, "<esc>", "<C-\\><C-n>", {desc = "Enter normal mode", silent = true})
 vim.keymap.set({"n", "i", "x", "s", "t"}, "<C-\\>", "<cmd>ToggleTermToggleAll<cr>", {desc = "Toggle terminal", silent = true})
 vim.keymap.set({"n"}, "<leader>xx", "<cmd>TroubleToggle<cr>", {desc = "Trouble", silent = true})
 vim.keymap.set({"n"}, "<leader>xw", "<cmd>TroubleToggle workspace_diagnostics<cr>", {desc = "Workspace diagnostics", silent = true})
@@ -141,4 +142,14 @@ vim.keymap.set({"n"}, "<leader>us", toggle("spell"), {desc = "Toggle spell", sil
 vim.keymap.set({"n"}, "<leader>uw", toggle("wrap"), {desc = "Toggle wrap", silent = true})
 vim.keymap.set({"n"}, "<leader>ur", toggle("relativenumber"), {desc = "Toggle relative numbers", silent = true})
 vim.keymap.set({"n"}, "<leader>un", toggle("number"), {desc = "Toggle line numbers", silent = true})
-return vim.keymap.set({"n"}, "<leader>uc", "<cmd>ColorizerToggle<cr>", {desc = "Toggle colorizer", silent = true})
+vim.keymap.set({"n"}, "<leader>uc", "<cmd>ColorizerToggle<cr>", {desc = "Toggle colorizer", silent = true})
+local function _10_()
+  if ((vim.opt_local.conceallevel):get() == 0) then
+    vim.opt_local["conceallevel"] = 3
+    return nil
+  else
+    vim.opt_local["conceallevel"] = 0
+    return nil
+  end
+end
+return vim.keymap.set({"n"}, "<leader>uh", _10_, {desc = "Toggle conceal", silent = true})

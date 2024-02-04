@@ -1,5 +1,5 @@
 (import-macros {: map! : command! : setlocal!} :hibiscus.vim)
-(import-macros {: require! : vim!} :macros)
+(import-macros {: require! : vim! : get!} :macros)
 
 (let [wk (require :which-key)]
   (wk.register {:t {:name :+terminal}
@@ -10,7 +10,8 @@
                 :q {:name :+quit}
                 :u {:name :+toggle}
                 :<tab> {:name :+tab}
-                :w {:name :+window}} {:prefix :<leader>})
+                :w {:name :+window}
+                :c {:name :+lsp}} {:prefix :<leader>})
   (wk.register {:z {:name :+fold}
                 :g {:name :+goto}
                 "]" {:name :+next}
@@ -20,16 +21,18 @@
 (map! [:n :silent] :<leader>s "<cmd>:silent w<cr><esc>" "Save file")
 (map! [:n] :<leader>l :<cmd>Lazy<cr> :Lazy)
 (map! [:n] :<leader>m :<cmd>Mason<cr> :Mason)
-(map! [:n] :<leader>o "<cmd>Neotree document_symbols<cr>" "Symbols outline")
+(map! [:n] :<leader>o "<cmd>Neotree document_symbols toggle<cr>" :Outline)
+(map! [:nt] :<leader>g :<cmd>Lazygit<cr> "Launch lazygit")
 
 (let [terminal (require! :toggleterm.terminal :Terminal)
       lazygit (terminal:new {:cmd :lazygit
                              :close_on_exit true
                              :direction :tab
-                             :dir :git_dir})]
+                             :dir :git_dir
+                             :name :lazygit})]
   (command! [] :Lazygit `(lazygit:toggle)))
 
-(map! [:n] :<leader>tg :<cmd>Lazygit<cr> "Launch lazygit")
+(map! [:nt] :<leader>tg :<cmd>Lazygit<cr> "Launch lazygit")
 (map! [:n] :<leader>th "<cmd>ToggleTerm direction=horizontal<cr>"
       "Horizontal terminal")
 
@@ -47,7 +50,7 @@
 
 (map! [:n] :<leader>tt "<cmd>ToggleTerm direction=tab<cr>" "Tab terminal")
 
-(map! [:t] :<C-e> "<C-\\><C-n>" "Enter normal mode")
+(map! [:t] :<esc> "<C-\\><C-n>" "Enter normal mode")
 (map! [:nixst] "<C-\\>" :<cmd>ToggleTermToggleAll<cr> "Toggle terminal")
 
 (map! [:n] :<leader>xx :<cmd>TroubleToggle<cr> :Trouble)
@@ -151,9 +154,14 @@
 
 (let [toggle (fn [opt]
                (fn []
-                 (setlocal! opt (not (: (. (vim! :opt_local) opt) :get)))))]
+                 (setlocal! opt (not (get! opt)))))]
   (map! [:n] :<leader>us (toggle :spell) "Toggle spell")
   (map! [:n] :<leader>uw (toggle :wrap) "Toggle wrap")
   (map! [:n] :<leader>ur (toggle :relativenumber) "Toggle relative numbers")
   (map! [:n] :<leader>un (toggle :number) "Toggle line numbers")
-  (map! [:n] :<leader>uc :<cmd>ColorizerToggle<cr> "Toggle colorizer"))
+  (map! [:n] :<leader>uc :<cmd>ColorizerToggle<cr> "Toggle colorizer")
+  (map! [:n] :<leader>uh
+        (fn []
+          (if (= (get! :conceallevel) 0)
+              (setlocal! :conceallevel 3)
+              (setlocal! :conceallevel 0))) "Toggle conceal"))

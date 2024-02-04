@@ -1,4 +1,4 @@
--- :fennel:1707018180
+-- :fennel:1707069595
 local function _1_()
   require("mason-lspconfig").setup({automatic_installation = true})
   local function _2_(server)
@@ -29,7 +29,11 @@ local function _3_()
     map("n", "gD", "<cmd>lua vim.lsp.buf.declaration()<cr>", "Goto declaration")
     map("n", "gi", "<cmd>lua vim.lsp.buf.implementation()<cr>", "Goto implementation")
     map("n", "go", "<cmd>lua vim.lsp.buf.type_definition()<cr>", "Goto type definition")
-    return map("n", "gr", "<cmd>lua vim.lsp.buf.references()<cr>", "Goto references")
+    map("n", "gr", "<cmd>lua vim.lsp.buf.references()<cr>", "Goto references")
+    map("n", "<leader>cr", "<cmd>lua vim.lsp.buf.rename()<cr>", "Rename")
+    map("n", "<leader>cf", "<cmd>lua vim.lsp.buf.format({async = true})<cr>", "Format")
+    map("n", "<leader>ca", "<cmd>lua vim.lsp.buf.code_action()<cr>", "Code actions")
+    return map("n", "<leader>ct", "<cmd>lua vim.lsp.buf.type_definition()<cr>", "Type definition")
   end
   return vim.api.nvim_create_autocmd({"LspAttach"}, {callback = _5_, desc = "Lsp actions", group = augid_4_, pattern = "*"})
 end

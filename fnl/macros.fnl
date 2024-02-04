@@ -10,4 +10,7 @@
 (fn vim! [cmd]
   (sym (.. :vim. cmd)))
 
-{: hl! : plug! : require! : vim!}
+(fn get! [opt]
+  `(: (. vim.opt_local ,opt) :get))
+
+{: hl! : plug! : require! : vim! : get!}

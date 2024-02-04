@@ -1,4 +1,4 @@
--- :fennel:1707018180
+-- :fennel:1707018206
 local function _1_()
   if (vim.fn.argc(-1) == 1) then
     local stat = vim.loop.fs_stat(vim.fn.argv(0))
