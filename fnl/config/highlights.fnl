@@ -16,6 +16,7 @@
 (hl! :CmpItemKindProperty {:fg "#EED8DA" :bg "#B5585F"})
 (hl! :CmpItemKindEvent {:fg "#EED8DA" :bg "#B5585F"})
 (hl! :CmpItemKindText {:fg "#C3E88D" :bg "#9FBD73"})
+(hl! :CmpItemKindCodeium {:fg "#C3E88D" :bg "#9FBD73"})
 (hl! :CmpItemKindEnum {:fg "#C3E88D" :bg "#9FBD73"})
 (hl! :CmpItemKindKeyword {:fg "#C3E88D" :bg "#9FBD73"})
 (hl! :CmpItemKindConstant {:fg "#FFE082" :bg "#D4BB6C"})

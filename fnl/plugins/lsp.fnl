@@ -61,7 +61,9 @@
                         :chrisgrieser/cmp_yanky
                         :L3MON4D3/LuaSnip
                         :saadparwaiz1/cmp_luasnip
-                        :onsails/lspkind.nvim]
+                        :onsails/lspkind.nvim
+                        (plug! :Exafunction/codeium.nvim
+                               {:cmd :Codeium :build ":Codeium Auth" :opts {}})]
          :config (fn []
                    (let [cmp (require :cmp)]
                      (cmp.setup {:snippet {:expand (fn [args]
@@ -73,7 +75,8 @@
                                  :formatting {:fields [:kind :abbr :menu]
                                               :format (fn [entry vim-item]
                                                         (let [lspkind (require :lspkind)
-                                                              cmp-format (lspkind.cmp_format {:mode :symbol_text})
+                                                              cmp-format (lspkind.cmp_format {:mode :symbol_text
+                                                                                              :symbol_map {:Codeium ""}})
                                                               kind (cmp-format entry
                                                                                vim-item)
                                                               strings ((vim! :split) kind.kind
@@ -101,6 +104,7 @@
                                  :sources (cmp.config.sources [{:name :nvim_lsp}
                                                                {:name :luasnip}
                                                                {:name :path}
+                                                               {:name :codeium}
                                                                {:name :neorg}]
                                                               [{:name :buffer}
                                                                {:name :emoji}

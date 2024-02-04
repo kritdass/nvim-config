@@ -1,14 +1,14 @@
--- :fennel:1705787927
+-- :fennel:1707018180
 do
   local wk = require("which-key")
   wk.register({t = {name = "+terminal"}, x = {name = "+trouble"}, h = {name = "+git"}, b = {name = "+buffer", s = "+swap"}, f = {name = "+find"}, q = {name = "+quit"}, u = {name = "+toggle"}, ["<tab>"] = {name = "+tab"}, w = {name = "+window"}}, {prefix = "<leader>"})
   wk.register({z = {name = "+fold"}, g = {name = "+goto"}, ["]"] = {name = "+next"}, ["["] = {name = "+prev"}})
 end
 vim.keymap.set({"n", "i", "x", "s"}, "<C-s>", "<cmd>:silent w<cr><esc>", {desc = "Save file", silent = true})
+vim.keymap.set({"n"}, "<leader>s", "<cmd>:silent w<cr><esc>", {desc = "Save file", silent = true})
 vim.keymap.set({"n"}, "<leader>l", "<cmd>Lazy<cr>", {desc = "Lazy", silent = true})
-vim.keymap.set({"n"}, "<leader>M", "<cmd>Mason<cr>", {desc = "Mason", silent = true})
-vim.keymap.set({"n", "v"}, "<leader>m", "<cmd>MCstart<cr>", {desc = "Multicursors", silent = true})
-vim.keymap.set({"n"}, "<leader>a", "<cmd>AerialToggle!<cr>", {desc = "Aerial", silent = true})
+vim.keymap.set({"n"}, "<leader>m", "<cmd>Mason<cr>", {desc = "Mason", silent = true})
+vim.keymap.set({"n"}, "<leader>o", "<cmd>Neotree document_symbols<cr>", {desc = "Symbols outline", silent = true})
 do
   local terminal = require("toggleterm.terminal").Terminal
   local lazygit = terminal:new({cmd = "lazygit", close_on_exit = true, direction = "tab", dir = "git_dir"})
@@ -140,4 +140,5 @@ toggle = _8_
 vim.keymap.set({"n"}, "<leader>us", toggle("spell"), {desc = "Toggle spell", silent = true})
 vim.keymap.set({"n"}, "<leader>uw", toggle("wrap"), {desc = "Toggle wrap", silent = true})
 vim.keymap.set({"n"}, "<leader>ur", toggle("relativenumber"), {desc = "Toggle relative numbers", silent = true})
-return vim.keymap.set({"n"}, "<leader>un", toggle("number"), {desc = "Toggle line numbers", silent = true})
+vim.keymap.set({"n"}, "<leader>un", toggle("number"), {desc = "Toggle line numbers", silent = true})
+return vim.keymap.set({"n"}, "<leader>uc", "<cmd>ColorizerToggle<cr>", {desc = "Toggle colorizer", silent = true})

@@ -1,2 +1,2 @@
--- :fennel:1705787927
+-- :fennel:1707013693
 return {"mrcjkb/haskell-tools.nvim", version = "^3", ft = {"haskell", "lhaskell", "cabal", "cabalproject"}}

@@ -1,4 +1,4 @@
--- :fennel:1705787927
+-- :fennel:1707013693
 local function _1_()
   return vim.fn["mkdp#util#install"]()
 end

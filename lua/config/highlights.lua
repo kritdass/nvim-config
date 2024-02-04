@@ -1,4 +1,4 @@
--- :fennel:1705787927
+-- :fennel:1707018180
 local colors = require("colors")
 vim.api.nvim_set_hl(0, "AlphaHeader", {fg = colors.blue})
 vim.api.nvim_set_hl(0, "AlphaShortcuts", {fg = colors.purple})
@@ -14,6 +14,7 @@ vim.api.nvim_set_hl(0, "CmpItemKindField", {fg = "#EED8DA", bg = "#B5585F"})
 vim.api.nvim_set_hl(0, "CmpItemKindProperty", {fg = "#EED8DA", bg = "#B5585F"})
 vim.api.nvim_set_hl(0, "CmpItemKindEvent", {fg = "#EED8DA", bg = "#B5585F"})
 vim.api.nvim_set_hl(0, "CmpItemKindText", {fg = "#C3E88D", bg = "#9FBD73"})
+vim.api.nvim_set_hl(0, "CmpItemKindCodeium", {fg = "#C3E88D", bg = "#9FBD73"})
 vim.api.nvim_set_hl(0, "CmpItemKindEnum", {fg = "#C3E88D", bg = "#9FBD73"})
 vim.api.nvim_set_hl(0, "CmpItemKindKeyword", {fg = "#C3E88D", bg = "#9FBD73"})
 vim.api.nvim_set_hl(0, "CmpItemKindConstant", {fg = "#FFE082", bg = "#D4BB6C"})

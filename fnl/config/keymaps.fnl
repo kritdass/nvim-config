@@ -17,10 +17,10 @@
                 "[" {:name :+prev}}))
 
 (map! [:nixs :silent] :<C-s> "<cmd>:silent w<cr><esc>" "Save file")
+(map! [:n :silent] :<leader>s "<cmd>:silent w<cr><esc>" "Save file")
 (map! [:n] :<leader>l :<cmd>Lazy<cr> :Lazy)
-(map! [:n] :<leader>M :<cmd>Mason<cr> :Mason)
-(map! [:nv] :<leader>m :<cmd>MCstart<cr> :Multicursors)
-(map! [:n] :<leader>a :<cmd>AerialToggle!<cr> :Aerial)
+(map! [:n] :<leader>m :<cmd>Mason<cr> :Mason)
+(map! [:n] :<leader>o "<cmd>Neotree document_symbols<cr>" "Symbols outline")
 
 (let [terminal (require! :toggleterm.terminal :Terminal)
       lazygit (terminal:new {:cmd :lazygit
@@ -155,4 +155,5 @@
   (map! [:n] :<leader>us (toggle :spell) "Toggle spell")
   (map! [:n] :<leader>uw (toggle :wrap) "Toggle wrap")
   (map! [:n] :<leader>ur (toggle :relativenumber) "Toggle relative numbers")
-  (map! [:n] :<leader>un (toggle :number) "Toggle line numbers"))
+  (map! [:n] :<leader>un (toggle :number) "Toggle line numbers")
+  (map! [:n] :<leader>uc :<cmd>ColorizerToggle<cr> "Toggle colorizer"))

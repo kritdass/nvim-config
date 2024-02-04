@@ -16,7 +16,8 @@
                                                                    :info "󰙎"
                                                                    :warn ""
                                                                    :error ""}}}
-               :window {:width 30 :mappings {:<space> :none}}
+               :sources [:filesystem :buffers :git_status :document_symbols]
+               :window {:width 30 :mappings {:<space> :none ";" :toggle_node}}
                :filesystem {:follow_current_file {:enabled true}
                             :hijack_netrw_behavior :open_current
                             :use_libuv_file_watcher true}}})

@@ -1,2 +1,2 @@
--- :fennel:1705789131
+-- :fennel:1707013693
 return {"mrjones2014/smart-splits.nvim"}

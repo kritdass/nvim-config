@@ -4,7 +4,7 @@ This repository stores my Neovim configuration meant for general programming use
 
 ## Features & Plugins
 
-- 🚀 Fast (50-70 ms startup time)
+- 🚀 Fast (60-70 ms startup time)
 - 🍊 Written in [Fennel](https://fennel-lang.org) via [tangerine](https://github.com/udayvir-singh/tangerine.nvim)
 - 💤 Lazy-loading and package management with [lazy](https://github.com/folke/lazy.nvim)
 - ⚙️  Automatic LSP server setup with [Mason](https://github.com/williamboman/mason.nvim) and [mason-lspconfig](https://github.com/williamboman/mason-lspconfig.nvim)
@@ -14,14 +14,13 @@ This repository stores my Neovim configuration meant for general programming use
 - 🎛️ Dashboard with [Alpha](https://github.com/goolord/alpha-nvim)
 - ⌚ Status line with [lualine](https://github.com/nvim-lualine/lualine.nvim)
 - 📑 Buffer line with [bufferline](https://github.com/akinsho/bufferline.nvim)
-- 📁 File system tree with [Neo-tree](https://github.com/nvim-neo-tree/neo-tree.nvim)
+- 📁 File tree and symbols outline with [Neo-tree](https://github.com/nvim-neo-tree/neo-tree.nvim)
 - ⚡ Jumping and searching with [flash](https://github.com/folke/flash.nvim)
+- 🪄 AI Code Completion with [codeium](https://github.com/Exafunction/codeium.nvim)
 - 🛑 Git integration with [GitSigns](https://github.com/lewis6991/gitsigns.nvim)
 - 💻 Terminal integration with [toggleterm](https://github.com/akinsho/toggleterm.nvim) and [smart-splits](https://github.com/mrjones2014/smart-splits.nvim)
 - 🛸 Better folding with [nvim-ufo](https://github.com/kevinhwang91/nvim-ufo)
-- 🗺️ Code outline with [Aerial](https://github.com/stevearc/aerial.nvim)
 - 📝 Note-taking with [Neorg](https://github.com/nvim-neorg/neorg)
-- 🖇️  Multiple cursor support with [multicursors](https://github.com/smoka7/multicursors.nvim)
 - ⌨️ Key maps registered with [WhichKey](https://github.com/folke/which-key.nvim)
 
 *And many other sensible plugins and defaults!*
