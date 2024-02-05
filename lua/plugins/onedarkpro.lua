@@ -1,2 +1,2 @@
--- :fennel:1707013693
-return {"olimorris/onedarkpro.nvim", opts = {highlights = {Comment = {italic = true}}}}
+-- :fennel:1707171502
+return {"olimorris/onedarkpro.nvim", priority = 1000, opts = {highlights = {Comment = {italic = true}}}}

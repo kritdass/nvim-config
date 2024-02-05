@@ -1,4 +1,4 @@
 (import-macros {: plug!} :macros)
 
 (plug! :olimorris/onedarkpro.nvim
-       {:opts {:highlights {:Comment {:italic true}}}})
+       {:priority 1000 :opts {:highlights {:Comment {:italic true}}}})
