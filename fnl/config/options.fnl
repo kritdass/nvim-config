@@ -1,8 +1,5 @@
-(import-macros {: set! : set+ : color! : g!} :hibiscus.vim)
+(import-macros {: set! : set+ : color!} :hibiscus.vim)
 (import-macros {: vim!} :macros)
-
-(g! :slimv_swank_cmd
-    ":tabnew | term ros run --eval '(ql:quickload :swank)' --eval '(swank:create-server :dont-close t)'")
 
 (color! :onedark_vivid)
 
