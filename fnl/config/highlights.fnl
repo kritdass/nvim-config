@@ -1,10 +1,11 @@
 (import-macros {: hl!} :macros)
 (local colors (require :colors))
 
-(hl! :AlphaHeader {:fg colors.blue})
-(hl! :AlphaShortcuts {:fg colors.purple})
-(hl! :AlphaButtons {:fg colors.green})
-(hl! :AlphaFooter {:fg colors.yellow})
+(hl! :DashboardHeader {:fg colors.blue})
+(hl! :DashboardKey {:fg colors.purple})
+(hl! :DashboardIcon {:fg colors.green})
+(hl! :DashboardDesc {:fg colors.green})
+(hl! :DashboardFooter {:fg colors.yellow})
 
 (hl! :PmenuSel {:bg "#282C34" :fg :NONE})
 (hl! :Pmenu {:fg "#C5CDD9" :bg "#22252A"})

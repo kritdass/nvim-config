@@ -1,4 +1,4 @@
--- :fennel:1707173589
+-- :fennel:1707173766
 vim.cmd("colorscheme onedark_vivid")
 do end (vim.opt)["number"] = true
 vim.opt["relativenumber"] = true

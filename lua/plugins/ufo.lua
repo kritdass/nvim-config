@@ -1,4 +1,4 @@
--- :fennel:1707013693
+-- :fennel:1707436289
 local function handler(virt_text, lnum, end_lnum, width, truncate)
   local new_virt_text = {}
   local suffix = string.format(" \243\176\129\130 %d ", (end_lnum - lnum))
@@ -25,7 +25,7 @@ local function handler(virt_text, lnum, end_lnum, width, truncate)
   table.insert(new_virt_text, {suffix, "MoreMsg"})
   return new_virt_text
 end
-local ft_exclude = {"help", "alpha", "neo-tree", "Trouble", "lazy", "mason", "toggleterm"}
+local ft_exclude = {"help", "dashboard", "neo-tree", "Trouble", "lazy", "mason", "toggleterm"}
 local function _3_()
   local builtin = require("statuscol.builtin")
   return require("statuscol").setup({ft_ignore = ft_exclude, relculright = true, segments = {{sign = {name = {"Diagnostic"}, maxwidth = 1, auto = true}, click = "v:lua.ScFa"}, {sign = {namespace = {"gitsigns"}, maxwidth = 1, auto = true}, click = "v:lua:ScSa"}, {text = {builtin.foldfunc, "  "}, click = "v:lua.ScFa"}, {sign = {maxwidth = 1, auto = true}, text = {builtin.lnumfunc, "  "}, click = "v:lua.ScLa"}}})
@@ -38,4 +38,4 @@ local function _4_(_, ft, _0)
     return {"lsp", "indent"}
   end
 end
-return {"kevinhwang91/nvim-ufo", event = {"BufReadPre", "BufNewFile"}, dependencies = {"kevinhwang91/promise-async", {"luukvbaal/statuscol.nvim", config = _3_}}, opts = {fold_virt_text_handler = handler, provider_selector = _4_, filetype_exclude = ft_exclude}}
+return {"kevinhwang91/nvim-ufo", event = {"BufReadPost", "BufNewFile"}, dependencies = {"kevinhwang91/promise-async", {"luukvbaal/statuscol.nvim", config = _3_}}, opts = {fold_virt_text_handler = handler, provider_selector = _4_, filetype_exclude = ft_exclude}}

@@ -1,21 +1,5 @@
-(import-macros {: map! : command! : setlocal!} :hibiscus.vim)
-(import-macros {: require! : vim! : get!} :macros)
-
-(let [wk (require :which-key)]
-  (wk.register {:t {:name :+terminal}
-                :x {:name :+trouble}
-                :h {:name :+git}
-                :b {:name :+buffer :s :+swap}
-                :f {:name :+find}
-                :q {:name :+quit}
-                :u {:name :+toggle}
-                :<tab> {:name :+tab}
-                :w {:name :+window}
-                :c {:name :+lsp}} {:prefix :<leader>})
-  (wk.register {:z {:name :+fold}
-                :g {:name :+goto}
-                "]" {:name :+next}
-                "[" {:name :+prev}}))
+(import-macros {: map! : setlocal!} :hibiscus.vim)
+(import-macros {: vim! : get!} :macros)
 
 (map! [:nixs :silent] :<C-s> "<cmd>:silent w<cr><esc>" "Save file")
 (map! [:n :silent] :<leader>s "<cmd>:silent w<cr><esc>" "Save file")
@@ -23,14 +7,6 @@
 (map! [:n] :<leader>m :<cmd>Mason<cr> :Mason)
 (map! [:n] :<leader>o "<cmd>Neotree document_symbols toggle<cr>" :Outline)
 (map! [:nt] :<leader>g :<cmd>Lazygit<cr> "Launch lazygit")
-
-(let [terminal (require! :toggleterm.terminal :Terminal)
-      lazygit (terminal:new {:cmd :lazygit
-                             :close_on_exit true
-                             :direction :tab
-                             :dir :git_dir
-                             :name :lazygit})]
-  (command! [] :Lazygit `(lazygit:toggle)))
 
 (map! [:nt] :<leader>tg :<cmd>Lazygit<cr> "Launch lazygit")
 (map! [:n] :<leader>th "<cmd>ToggleTerm direction=horizontal<cr>"
@@ -66,24 +42,6 @@
 
 (map! [:n] :<leader>e "<cmd>Neotree toggle<cr>" :Neotree)
 
-(let [splits (require :smart-splits)]
-  (map! [:n] :<A-h> splits.resize_left "Resize left")
-  (map! [:n] :<A-j> splits.resize_down "Resize down")
-  (map! [:n] :<A-k> splits.resize_up "Resize up")
-  (map! [:n] :<A-l> splits.resize_right "Resize right")
-  (map! [:n] :<C-h> splits.move_cursor_left "Move left")
-  (map! [:n] :<C-j> splits.move_cursor_down "Move left")
-  (map! [:n] :<C-k> splits.move_cursor_up "Move left")
-  (map! [:n] :<C-l> splits.move_cursor_right "Move left")
-  (map! [:n] :bsh splits.swap_buf_left "Swap left")
-  (map! [:n] :bsj splits.swap_buf_down "Swap down")
-  (map! [:n] :bsk splits.swap_buf_up "Swap up")
-  (map! [:n] :bsl splits.swap_buf_right "Swap right"))
-
-(let [ufo (require :ufo)]
-  (map! [:n] :zR ufo.openAllFolds "Open all folds")
-  (map! [:n] :zM ufo.closeAllFolds "Close all folds"))
-
 (map! [:n] :<leader>ff "<cmd>Telescope find_files<cr>" "Find files")
 (map! [:n] :<leader>fc "<cmd>Telescope find_files cwd=$HOME/.config/nvim<cr>"
       "Config files")
@@ -102,11 +60,6 @@
 (map! [:n] :<leader>fg "<cmd>Telescope git_commits<cr>" "Search Git commits")
 (map! [:n] :<leader>fa "<cmd>Telescope aerial<cr>" "Search symbols")
 (map! [:n] :<leader>fh "<cmd>Telescope help_tags<cr>" "Search help tags")
-
-(let [flash (require :flash)]
-  (map! [:nox] :s flash.jump :Flash)
-  (map! [:nox] :S flash.treesitter "Flash Treesitter")
-  (map! [:c] :<C-e> flash.toggle "Toggle Flash search"))
 
 (map! [:n] :<leader>ww :<C-w>w "Other window")
 (map! [:n] :<leader>wd :<C-w>c "Delete window")

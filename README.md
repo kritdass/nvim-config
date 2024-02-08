@@ -4,23 +4,22 @@ This repository stores my Neovim configuration meant for general programming use
 
 ## Features & Plugins
 
-- 🚀 Fast (60-70 ms startup time)
+- 🚀 Fast (20-30 ms startup time)
 - 🍊 Written in [Fennel](https://fennel-lang.org) via [tangerine](https://github.com/udayvir-singh/tangerine.nvim)
 - 💤 Lazy-loading and package management with [lazy](https://github.com/folke/lazy.nvim)
-- ⚙️  Automatic LSP server setup with [Mason](https://github.com/williamboman/mason.nvim) and [mason-lspconfig](https://github.com/williamboman/mason-lspconfig.nvim)
-- 🌳 Syntax highlighting with [Treesitter](https://github.com/nvim-treesitter/nvim-treesitter)
-- 🔍 Searching with [Telescope](https://github.com/nvim-telescope/telescope.nvim)
-- 💄 Improved UI with [Noice](https://github.com/folke/noice.nvim)
-- 🎛️ Dashboard with [Alpha](https://github.com/goolord/alpha-nvim)
+- ⚙️  Automatic LSP server setup with [mason](https://github.com/williamboman/mason.nvim) and [mason-lspconfig](https://github.com/williamboman/mason-lspconfig.nvim)
+- 🌳 Syntax highlighting with [treesitter](https://github.com/nvim-treesitter/nvim-treesitter)
+- 🔍 Searching with [telescope](https://github.com/nvim-telescope/telescope.nvim)
+- 💄 Improved UI with [noice](https://github.com/folke/noice.nvim)
+- 🎛️ Dashboard with [dashboard](https://github.com/nvimdev/dashboard-nvim)
 - ⌚ Status line with [lualine](https://github.com/nvim-lualine/lualine.nvim)
 - 📑 Buffer line with [bufferline](https://github.com/akinsho/bufferline.nvim)
-- 📁 File tree and symbols outline with [Neo-tree](https://github.com/nvim-neo-tree/neo-tree.nvim)
+- 📁 File tree and symbols outline with [neotree](https://github.com/nvim-neo-tree/neo-tree.nvim)
 - ⚡ Jumping and searching with [flash](https://github.com/folke/flash.nvim)
 - 🪄 AI Code Completion with [codeium](https://github.com/Exafunction/codeium.nvim)
-- 🛑 Git integration with [GitSigns](https://github.com/lewis6991/gitsigns.nvim)
-- 💻 Terminal integration with [toggleterm](https://github.com/akinsho/toggleterm.nvim) and [smart-splits](https://github.com/mrjones2014/smart-splits.nvim)
+- 🛑 Git integration with [gitsigns](https://github.com/lewis6991/gitsigns.nvim)
+- 💻 Terminal integration with [toggleterm](https://github.com/akinsho/toggleterm.nvim)
 - 🛸 Better folding with [nvim-ufo](https://github.com/kevinhwang91/nvim-ufo)
-- 📝 Note-taking with [Neorg](https://github.com/nvim-neorg/neorg)
-- ⌨️ Key maps registered with [WhichKey](https://github.com/folke/which-key.nvim)
+- ⌨️ Key maps registered with [which-key](https://github.com/folke/which-key.nvim)
 
 *And many other sensible plugins and defaults!*

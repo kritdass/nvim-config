@@ -19,7 +19,7 @@
         :opts {:options {:theme bubbles
                          :component_separators "|"
                          :section_separators {:left "" :right ""}
-                         :disabled_filetypes {:statusline [:alpha]}}
+                         :disabled_filetypes {:statusline [:dashboard]}}
                :sections {:lualine_a [{1 :mode
                                        :separator {:left ""}
                                        :padding {:right 2}}]

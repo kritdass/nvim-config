@@ -1,2 +1,2 @@
--- :fennel:1707013693
-return {"numToStr/Comment.nvim", opts = {}, event = "VeryLazy"}
+-- :fennel:1707436289
+return {"echasnovski/mini.comment", opts = {}, event = "VeryLazy"}

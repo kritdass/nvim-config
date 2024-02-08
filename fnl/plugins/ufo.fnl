@@ -24,10 +24,16 @@
   (table.insert new-virt-text [suffix :MoreMsg])
   new-virt-text)
 
-(local ft-exclude [:help :alpha :neo-tree :Trouble :lazy :mason :toggleterm])
+(local ft-exclude [:help
+                   :dashboard
+                   :neo-tree
+                   :Trouble
+                   :lazy
+                   :mason
+                   :toggleterm])
 
 (plug! :kevinhwang91/nvim-ufo
-       {:event [:BufReadPre :BufNewFile]
+       {:event [:BufReadPost :BufNewFile]
         :dependencies [:kevinhwang91/promise-async
                        (plug! :luukvbaal/statuscol.nvim
                               {:config (fn []
