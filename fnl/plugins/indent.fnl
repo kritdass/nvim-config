@@ -3,5 +3,7 @@
 (plug! :lukas-reineke/indent-blankline.nvim
        {:main :ibl
         :event :BufRead
-        :opts {:indent {:char "▏"}
-               :scope {:show_start false :show_end false}}})
+        :dependencies [(plug! :echasnovski/mini.indentscope
+                              {:opts {:symbol "│"
+                                      :options {:try_as_border true}}})]
+        :opts {:indent {:char "│"} :scope {:enabled false}}})

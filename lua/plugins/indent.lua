@@ -1,2 +1,2 @@
--- :fennel:1707070131
-return {"lukas-reineke/indent-blankline.nvim", main = "ibl", event = "BufRead", opts = {indent = {char = "\226\150\143"}, scope = {show_end = false, show_start = false}}}
+-- :fennel:1708283736
+return {"lukas-reineke/indent-blankline.nvim", main = "ibl", event = "BufRead", dependencies = {{"echasnovski/mini.indentscope", opts = {symbol = "\226\148\130", options = {try_as_border = true}}}}, opts = {indent = {char = "\226\148\130"}, scope = {enabled = false}}}
