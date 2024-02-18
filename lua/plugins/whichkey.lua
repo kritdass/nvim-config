@@ -1,4 +1,4 @@
--- :fennel:1707436289
+-- :fennel:1707436565
 local function _1_(_, opts)
   local wk = require("which-key")
   wk.setup(opts)

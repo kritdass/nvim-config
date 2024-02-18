@@ -1,4 +1,4 @@
--- :fennel:1707436289
+-- :fennel:1708279994
 vim.keymap.set({"n", "i", "x", "s"}, "<C-s>", "<cmd>:silent w<cr><esc>", {desc = "Save file", silent = true})
 vim.keymap.set({"n"}, "<leader>s", "<cmd>:silent w<cr><esc>", {desc = "Save file", silent = true})
 vim.keymap.set({"n"}, "<leader>l", "<cmd>Lazy<cr>", {desc = "Lazy", silent = true})
@@ -104,6 +104,7 @@ vim.keymap.set({"n"}, "<leader>uw", toggle("wrap"), {desc = "Toggle wrap", silen
 vim.keymap.set({"n"}, "<leader>ur", toggle("relativenumber"), {desc = "Toggle relative numbers", silent = true})
 vim.keymap.set({"n"}, "<leader>un", toggle("number"), {desc = "Toggle line numbers", silent = true})
 vim.keymap.set({"n"}, "<leader>uc", "<cmd>ColorizerToggle<cr>", {desc = "Toggle colorizer", silent = true})
+vim.keymap.set({"n"}, "<leader>ux", "<cmd>TSContextToggle<cr>", {desc = "Toggle context", silent = true})
 local function _9_()
   if ((vim.opt_local.conceallevel):get() == 0) then
     vim.opt_local["conceallevel"] = 3

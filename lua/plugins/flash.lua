@@ -1,4 +1,4 @@
--- :fennel:1707436289
+-- :fennel:1707436565
 local function _1_()
   local flash = require("flash")
   return {{"s", flash.jump, mode = {"n", "o", "x"}, desc = "Flash"}, {"S", flash.treesitter, mode = {"n", "o", "x"}, desc = "Flash Treesitter"}, {"<C-e>", flash.toggle, mode = {"c"}, desc = "Toggle Flash search"}}

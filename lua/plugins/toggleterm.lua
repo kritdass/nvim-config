@@ -1,4 +1,4 @@
--- :fennel:1707436289
+-- :fennel:1707436565
 local function _1_()
   local terminal = require("toggleterm.terminal").Terminal
   local lazygit = terminal:new({cmd = "lazygit", close_on_exit = true, direction = "tab", dir = "git_dir", name = "lazygit"})
