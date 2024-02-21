@@ -1,8 +1,9 @@
-(import-macros {: plug! : vim!} :macros)
+(import-macros {: plug! : vim! : require!} :macros)
 
 (plug! :lewis6991/gitsigns.nvim
        {:event [:BufReadPre :BufNewFile]
         :opts {:on_attach (fn [buffer]
+                            ((require! :scrollbar.handlers.gitsigns :setup))
                             (let [gs package.loaded.gitsigns
                                   map (fn [mode lhs rhs desc]
                                         ((vim! :keymap.set) mode lhs rhs

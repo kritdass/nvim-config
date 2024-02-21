@@ -1,5 +1,6 @@
--- :fennel:1707013693
+-- :fennel:1708478938
 local function _1_(buffer)
+  require("scrollbar.handlers.gitsigns").setup()
   local gs = package.loaded.gitsigns
   local map
   local function _2_(mode, lhs, rhs, desc)
