@@ -1,9 +1,9 @@
--- :fennel:1708477694
+-- :fennel:1708479509
 vim.keymap.set({"n", "i", "x", "s"}, "<C-s>", "<cmd>:silent w<cr><esc>", {desc = "Save file", silent = true})
 vim.keymap.set({"n"}, "<leader>s", "<cmd>:silent w<cr><esc>", {desc = "Save file", silent = true})
 vim.keymap.set({"n"}, "<leader>l", "<cmd>Lazy<cr>", {desc = "Lazy", silent = true})
 vim.keymap.set({"n"}, "<leader>m", "<cmd>Mason<cr>", {desc = "Mason", silent = true})
-vim.keymap.set({"n"}, "<leader>o", "<cmd>Neotree document_symbols toggle<cr>", {desc = "Outline", silent = true})
+vim.keymap.set({"n"}, "<leader>o", "<cmd>Neotree document_symbols toggle position=right<cr>", {desc = "Outline", silent = true})
 vim.keymap.set({"n", "t"}, "<leader>g", "<cmd>Lazygit<cr>", {desc = "Launch lazygit", silent = true})
 vim.keymap.set({"n", "t"}, "<leader>tg", "<cmd>Lazygit<cr>", {desc = "Launch lazygit", silent = true})
 vim.keymap.set({"n"}, "<leader>th", "<cmd>ToggleTerm direction=horizontal<cr>", {desc = "Horizontal terminal", silent = true})

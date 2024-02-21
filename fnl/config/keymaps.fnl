@@ -5,7 +5,8 @@
 (map! [:n :silent] :<leader>s "<cmd>:silent w<cr><esc>" "Save file")
 (map! [:n] :<leader>l :<cmd>Lazy<cr> :Lazy)
 (map! [:n] :<leader>m :<cmd>Mason<cr> :Mason)
-(map! [:n] :<leader>o "<cmd>Neotree document_symbols toggle<cr>" :Outline)
+(map! [:n] :<leader>o "<cmd>Neotree document_symbols toggle position=right<cr>"
+      :Outline)
 (map! [:nt] :<leader>g :<cmd>Lazygit<cr> "Launch lazygit")
 
 (map! [:nt] :<leader>tg :<cmd>Lazygit<cr> "Launch lazygit")
