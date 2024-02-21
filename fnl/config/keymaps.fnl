@@ -114,6 +114,7 @@
   (map! [:n] :<leader>un (toggle :number) "Toggle line numbers")
   (map! [:n] :<leader>uc :<cmd>ColorizerToggle<cr> "Toggle colorizer")
   (map! [:n] :<leader>ux :<cmd>TSContextToggle<cr> "Toggle context")
+  (map! [:n] :<leader>ub "<cmd>Barbecue toggle<cr>" "Toggle breadcrumbs")
   (map! [:n] :<leader>uh
         (fn []
           (if (= (get! :conceallevel) 0)

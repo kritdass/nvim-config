@@ -14,6 +14,7 @@ This repository stores my Neovim configuration meant for general programming use
 - 🎛️ Dashboard with [dashboard](https://github.com/nvimdev/dashboard-nvim)
 - ⌚ Status line with [lualine](https://github.com/nvim-lualine/lualine.nvim)
 - 📑 Buffer line with [bufferline](https://github.com/akinsho/bufferline.nvim)
+- 🍞 Breadcrumbs with [barbecue](https://github.com/utilyre/barbecue.nvim)
 - 📁 File tree and symbols outline with [neotree](https://github.com/nvim-neo-tree/neo-tree.nvim)
 - ⚡ Jumping and searching with [flash](https://github.com/folke/flash.nvim)
 - 🪄 AI Code Completion with [codeium](https://github.com/Exafunction/codeium.nvim)
