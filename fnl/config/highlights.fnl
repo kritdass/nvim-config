@@ -9,6 +9,7 @@
 
 (hl! :PmenuSel {:bg "#282C34" :fg :NONE})
 (hl! :Pmenu {:fg "#C5CDD9" :bg "#22252A"})
+(hl! :CmpGhostText {:fg colors.gray2})
 (hl! :CmpItemAbbrDeprecated {:fg "#7E8294" :bg :NONE :strikethrough true})
 (hl! :CmpItemAbbrMatch {:fg "#82AAFF" :bg :NONE :bold true})
 (hl! :CmpItemAbbrMatchFuzzy {:fg "#82AAFF" :bg :NONE :bold true})
