@@ -7,5 +7,7 @@
                                   :haskell [:fourmolu]
                                   :markdown [:mdformat]
                                   :clojure [:cljstyle]
+                                  :typescriptreact [[:prettierd :prettier]]
+                                  :javascriptreact [[:prettierd :prettier]]
                                   :_ [:trim_whitespace :trim_newlines]}
                :format_on_save {:lsp_fallback true :timeout_ms 500}}})

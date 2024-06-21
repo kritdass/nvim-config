@@ -67,6 +67,7 @@
                         :hrsh7th/cmp-buffer
                         :hrsh7th/cmp-path
                         :hrsh7th/cmp-emoji
+                        :kdheepak/cmp-latex-symbols
                         :chrisgrieser/cmp_yanky
                         (plug! :L3MON4D3/LuaSnip
                                {:build "make install_jsregexp"
@@ -75,9 +76,7 @@
                                                                  ((require! :luasnip.loaders.from_vscode
                                                                             :lazy_load)))})]})
                         :saadparwaiz1/cmp_luasnip
-                        :onsails/lspkind.nvim
-                        (plug! :Exafunction/codeium.nvim
-                               {:cmd :Codeium :build ":Codeium Auth" :opts {}})]
+                        :onsails/lspkind.nvim]
          :config (fn []
                    (let [cmp (require :cmp)
                          luasnip (require :luasnip)
@@ -134,7 +133,8 @@
                                  :sources (cmp.config.sources [{:name :nvim_lsp}
                                                                {:name :luasnip}
                                                                {:name :path}
-                                                               {:name :codeium}]
+                                                               {:name :latex_symbols
+                                                                :option {:strategy 0}}]
                                                               [{:name :buffer}
                                                                {:name :emoji}
                                                                {:name :cmp_yanky
