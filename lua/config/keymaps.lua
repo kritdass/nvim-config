@@ -1,4 +1,4 @@
--- :fennel:1718979922
+-- :fennel:1721579812
 vim.keymap.set({"n", "i", "x", "s"}, "<C-s>", "<cmd>:silent w<cr><esc>", {desc = "Save file", silent = true})
 vim.keymap.set({"n"}, "<leader>s", "<cmd>:silent w<cr><esc>", {desc = "Save file", silent = true})
 vim.keymap.set({"n"}, "<leader>l", "<cmd>Lazy<cr>", {desc = "Lazy", silent = true})
@@ -14,11 +14,9 @@ vim.keymap.set({"n"}, "<leader>tf", "<cmd>ToggleTerm direction=float<cr>", {desc
 vim.keymap.set({"n"}, "<leader>tt", "<cmd>ToggleTerm direction=tab<cr>", {desc = "Tab terminal", silent = true})
 vim.keymap.set({"t"}, "<esc>", "<C-\\><C-n>", {desc = "Enter normal mode", silent = true})
 vim.keymap.set({"n", "i", "x", "s", "t"}, "<C-\\>", "<cmd>ToggleTermToggleAll<cr>", {desc = "Toggle terminal", silent = true})
-vim.keymap.set({"n"}, "<leader>xx", "<cmd>TroubleToggle<cr>", {desc = "Trouble", silent = true})
-vim.keymap.set({"n"}, "<leader>xw", "<cmd>TroubleToggle workspace_diagnostics<cr>", {desc = "Workspace diagnostics", silent = true})
-vim.keymap.set({"n"}, "<leader>xd", "<cmd>TroubleToggle document_diagnostics<cr>", {desc = "Document diagnostics", silent = true})
-vim.keymap.set({"n"}, "<leader>xq", "<cmd>TroubleToggle quickfix<cr>", {desc = "Quickfix", silent = true})
-vim.keymap.set({"n"}, "<leader>xl", "<cmd>TroubleToggle loclist<cr>", {desc = "Location list", silent = true})
+vim.keymap.set({"n"}, "<leader>xx", "<cmd>Trouble diagnostics toggle<cr>", {desc = "Trouble", silent = true})
+vim.keymap.set({"n"}, "<leader>xq", "<cmd>Trouble qflist toggle<cr>", {desc = "Quickfix", silent = true})
+vim.keymap.set({"n"}, "<leader>xl", "<cmd>Trouble loclist toggle<cr>", {desc = "Location list", silent = true})
 vim.keymap.set({"n"}, "<leader>e", "<cmd>Neotree toggle<cr>", {desc = "Neotree", silent = true})
 vim.keymap.set({"n"}, "<leader>ff", "<cmd>Telescope find_files<cr>", {desc = "Find files", silent = true})
 vim.keymap.set({"n"}, "<leader>fc", "<cmd>Telescope find_files cwd=$HOME/.config/nvim<cr>", {desc = "Config files", silent = true})

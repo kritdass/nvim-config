@@ -1,8 +1,8 @@
--- :fennel:1707436565
+-- :fennel:1721574688
 local function _1_()
   local opts
   local function _2_()
-    local stats = require("lazy").stats()
+    local stats = (require("lazy")).stats()
     local ms = (math.floor(((stats.startuptime * 100) + 0.5)) / 100)
     return {"", ("\226\154\161 Neovim loaded " .. stats.loaded .. "/" .. stats.count .. " plugins in " .. ms .. "ms")}
   end

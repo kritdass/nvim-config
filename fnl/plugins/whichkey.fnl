@@ -2,20 +2,17 @@
 
 (plug! :folke/which-key.nvim
        {:event :VeryLazy
-        :opts {:defaults {:<leader>t {:name :+terminal}
-                          :<leader>x {:name :+trouble}
-                          :<leader>h {:name :+git}
-                          :<leader>b {:name :+buffer}
-                          :<leader>f {:name :+find}
-                          :<leader>q {:name :+quit}
-                          :<leader>u {:name :+toggle}
-                          :<leader><tab> {:name :+tab}
-                          :<leader>w {:name :+window}
-                          :<leader>c {:name :+lsp}
-                          :z {:name :+fold}
-                          :g {:name :+goto}
-                          "]" {:name :+next}
-                          "[" {:name :+prev}}}
-        :config (fn [_ opts]
-                  (let [wk (require :which-key)] (wk.setup opts)
-                    (wk.register opts.defaults)))})
+        :opts {:spec [{1 :<leader>t :group :terminal}
+                      {1 :<leader>x :group :trouble}
+                      {1 :<leader>h :group :git}
+                      {1 :<leader>b :group :buffer}
+                      {1 :<leader>f :group :find}
+                      {1 :<leader>q :group :quit}
+                      {1 :<leader>u :group :toggle}
+                      {1 :<leader><tab> :group :tab}
+                      {1 :<leader>w :group :window}
+                      {1 :<leader>c :group :lsp}
+                      {1 :z :group :fold}
+                      {1 :g :group :goto}
+                      {1 "]" :group :next}
+                      {1 "[" :group :prev}]}})

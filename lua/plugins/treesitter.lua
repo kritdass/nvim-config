@@ -1,4 +1,4 @@
--- :fennel:1718979922
+-- :fennel:1721574688
 local textobj_opts = {textobjects = {select = {enable = true, lookahead = true, keymaps = {af = {query = "@function.outer", desc = "a function"}, ["if"] = {query = "@function.inner", desc = "inner function"}, ac = {query = "@class.outer", desc = "a class"}, ic = {query = "@class.inner", desc = "inner class"}}}}}
 local function _1_()
   return (require("nvim-treesitter.configs")).setup(textobj_opts)

@@ -7,6 +7,7 @@
 (map! [:n] :<leader>m :<cmd>Mason<cr> :Mason)
 (map! [:n] :<leader>o "<cmd>Neotree document_symbols toggle position=right<cr>"
       :Outline)
+
 (map! [:nt] :<leader>g :<cmd>Lazygit<cr> "Launch lazygit")
 
 (map! [:nt] :<leader>tg :<cmd>Lazygit<cr> "Launch lazygit")
@@ -30,16 +31,11 @@
 (map! [:t] :<esc> "<C-\\><C-n>" "Enter normal mode")
 (map! [:nixst] "<C-\\>" :<cmd>ToggleTermToggleAll<cr> "Toggle terminal")
 
-(map! [:n] :<leader>xx :<cmd>TroubleToggle<cr> :Trouble)
-(map! [:n] :<leader>xw "<cmd>TroubleToggle workspace_diagnostics<cr>"
-      "Workspace diagnostics")
+(map! [:n] :<leader>xx "<cmd>Trouble diagnostics toggle<cr>" :Trouble)
 
-(map! [:n] :<leader>xd "<cmd>TroubleToggle document_diagnostics<cr>"
-      "Document diagnostics")
+(map! [:n] :<leader>xq "<cmd>Trouble qflist toggle<cr>" :Quickfix)
 
-(map! [:n] :<leader>xq "<cmd>TroubleToggle quickfix<cr>" :Quickfix)
-
-(map! [:n] :<leader>xl "<cmd>TroubleToggle loclist<cr>" "Location list")
+(map! [:n] :<leader>xl "<cmd>Trouble loclist toggle<cr>" "Location list")
 
 (map! [:n] :<leader>e "<cmd>Neotree toggle<cr>" :Neotree)
 

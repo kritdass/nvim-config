@@ -1,4 +1,3 @@
 (import-macros {: plug!} :macros)
 
-(plug! :max397574/better-escape.nvim
-       {:event :InsertEnter :opts {:mapping [:jk :kj]}})
+(plug! :max397574/better-escape.nvim {:event :InsertEnter :opts {}})

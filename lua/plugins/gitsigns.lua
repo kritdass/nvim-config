@@ -1,4 +1,4 @@
--- :fennel:1718979922
+-- :fennel:1721574688
 local function _1_(buffer)
   do end (require("scrollbar.handlers.gitsigns")).setup()
   local gs = package.loaded.gitsigns

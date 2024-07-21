@@ -1,4 +1,4 @@
--- :fennel:1707436565
+-- :fennel:1721574688
 local function handler(virt_text, lnum, end_lnum, width, truncate)
   local new_virt_text = {}
   local suffix = string.format(" \243\176\129\130 %d ", (end_lnum - lnum))
@@ -28,7 +28,7 @@ end
 local ft_exclude = {"help", "dashboard", "neo-tree", "Trouble", "lazy", "mason", "toggleterm"}
 local function _3_()
   local builtin = require("statuscol.builtin")
-  return require("statuscol").setup({ft_ignore = ft_exclude, relculright = true, segments = {{sign = {name = {"Diagnostic"}, maxwidth = 1, auto = true}, click = "v:lua.ScFa"}, {sign = {namespace = {"gitsigns"}, maxwidth = 1, auto = true}, click = "v:lua:ScSa"}, {text = {builtin.foldfunc, "  "}, click = "v:lua.ScFa"}, {sign = {maxwidth = 1, auto = true}, text = {builtin.lnumfunc, "  "}, click = "v:lua.ScLa"}}})
+  return (require("statuscol")).setup({ft_ignore = ft_exclude, relculright = true, segments = {{sign = {name = {"Diagnostic"}, maxwidth = 1, auto = true}, click = "v:lua.ScFa"}, {sign = {namespace = {"gitsigns"}, maxwidth = 1, auto = true}, click = "v:lua:ScSa"}, {text = {builtin.foldfunc, "  "}, click = "v:lua.ScFa"}, {sign = {maxwidth = 1, auto = true}, text = {builtin.lnumfunc, "  "}, click = "v:lua.ScLa"}}})
 end
 local function _4_(_, ft, _0)
   local nofold = {"markdown", "sh", "css", "html", "python", "fennel"}

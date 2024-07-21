@@ -1,4 +1,4 @@
--- :fennel:1718979991
+-- :fennel:1721574688
 local function _1_()
   do end (require("mason-lspconfig")).setup({automatic_installation = true})
   local function _2_(server)

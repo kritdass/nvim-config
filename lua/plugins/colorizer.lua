@@ -1,2 +1,2 @@
--- :fennel:1707521212
+-- :fennel:1721574688
 return {"norcalli/nvim-colorizer.lua", event = "VeryLazy"}

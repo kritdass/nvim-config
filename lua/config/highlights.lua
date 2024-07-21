@@ -1,4 +1,4 @@
--- :fennel:1718979922
+-- :fennel:1721574688
 local colors = require("colors")
 vim.api.nvim_set_hl(0, "DashboardHeader", {fg = colors.blue})
 vim.api.nvim_set_hl(0, "DashboardKey", {fg = colors.purple})

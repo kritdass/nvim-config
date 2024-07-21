@@ -1,2 +1,2 @@
--- :fennel:1707013693
-return {"folke/trouble.nvim", cmd = {"Trouble", "TroubleToggle"}, opts = {}}
+-- :fennel:1721579586
+return {"folke/trouble.nvim", cmd = "Trouble", opts = {}}
