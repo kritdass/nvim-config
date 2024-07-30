@@ -7,8 +7,7 @@
                             (let [gs package.loaded.gitsigns
                                   map (fn [mode lhs rhs desc]
                                         ((vim! :keymap.set) mode lhs rhs
-                                                            {: buffer : desc}))
-                                  wk (require :which-key)]
+                                                            {: buffer : desc}))]
                               (map :n :<leader>hg :<cmd>Lazygit<cr> :Lazygit)
                               (map :n "]h" gs.next_hunk "Next hunk")
                               (map :n "[h" gs.next_hunk "Prev hunk")
@@ -26,6 +25,4 @@
                                    "Blame line")
                               (map :n :<leader>hd gs.diffthis "Diff this")
                               (map :n :<leader>hD (fn [] (gs.diffthis "~"))
-                                   "Diff this ~")
-                              (wk.register {:h {:name :git}}
-                                           {:prefix :<leader>})))}})
+                                   "Diff this ~")))}})

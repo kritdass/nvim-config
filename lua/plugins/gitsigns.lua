@@ -1,4 +1,4 @@
--- :fennel:1721574688
+-- :fennel:1722348419
 local function _1_(buffer)
   do end (require("scrollbar.handlers.gitsigns")).setup()
   local gs = package.loaded.gitsigns
@@ -7,7 +7,6 @@ local function _1_(buffer)
     return vim.keymap.set(mode, lhs, rhs, {buffer = buffer, desc = desc})
   end
   map = _2_
-  local wk = require("which-key")
   map("n", "<leader>hg", "<cmd>Lazygit<cr>", "Lazygit")
   map("n", "]h", gs.next_hunk, "Next hunk")
   map("n", "[h", gs.next_hunk, "Prev hunk")
@@ -25,7 +24,6 @@ local function _1_(buffer)
   local function _4_()
     return gs.diffthis("~")
   end
-  map("n", "<leader>hD", _4_, "Diff this ~")
-  return wk.register({h = {name = "git"}}, {prefix = "<leader>"})
+  return map("n", "<leader>hD", _4_, "Diff this ~")
 end
 return {"lewis6991/gitsigns.nvim", event = {"BufReadPre", "BufNewFile"}, opts = {on_attach = _1_}}

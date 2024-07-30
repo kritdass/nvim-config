@@ -1,2 +1,2 @@
--- :fennel:1721579586
+-- :fennel:1721579957
 return {"folke/trouble.nvim", cmd = "Trouble", opts = {}}
