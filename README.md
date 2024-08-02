@@ -17,7 +17,6 @@ This repository stores my Neovim configuration meant for general programming use
 - 🍞 Breadcrumbs with [barbecue](https://github.com/utilyre/barbecue.nvim)
 - 📁 File tree and symbols outline with [neotree](https://github.com/nvim-neo-tree/neo-tree.nvim)
 - ⚡ Jumping and searching with [flash](https://github.com/folke/flash.nvim)
-- 🪄 AI Code Completion with [codeium](https://github.com/Exafunction/codeium.nvim)
 - 🛑 Git integration with [gitsigns](https://github.com/lewis6991/gitsigns.nvim)
 - 💻 Terminal integration with [toggleterm](https://github.com/akinsho/toggleterm.nvim)
 - 🛸 Better folding with [nvim-ufo](https://github.com/kevinhwang91/nvim-ufo)

@@ -1,13 +1,13 @@
--- :fennel:1721574688
+-- :fennel:1722617638
 local function _1_()
-  do end (require("mason-lspconfig")).setup({automatic_installation = true})
+  require("mason-lspconfig").setup({automatic_installation = true})
   local function _2_(server)
     local lspconfig = require("lspconfig")
-    local capabilities = (require("cmp_nvim_lsp")).default_capabilities(vim.lsp.protocol.make_client_capabilities())
+    local capabilities = require("cmp_nvim_lsp").default_capabilities(vim.lsp.protocol.make_client_capabilities())
     capabilities.textDocument.foldingRange = {lineFoldingOnly = true, dynamicRegistration = false}
     return lspconfig[server].setup({capabilities = capabilities})
   end
-  return (require("mason-lspconfig")).setup_handlers({_2_})
+  return require("mason-lspconfig").setup_handlers({_2_})
 end
 local function _3_()
   local augid_4_ = vim.api.nvim_create_augroup("lsp", {clear = true})
@@ -18,7 +18,7 @@ local function _3_()
     end
     map = _6_
     local function _7_()
-      if not (require("ufo")).peekFoldedLinesUnderCursor() then
+      if not require("ufo").peekFoldedLinesUnderCursor() then
         return vim.lsp.buf.hover()
       else
         return nil
@@ -38,14 +38,14 @@ local function _3_()
   return vim.api.nvim_create_autocmd({"LspAttach"}, {callback = _5_, desc = "Lsp actions", group = augid_4_, pattern = "*"})
 end
 local function _9_()
-  return (require("luasnip.loaders.from_vscode")).lazy_load()
+  return require("luasnip.loaders.from_vscode").lazy_load()
 end
 local function _10_()
   local cmp = require("cmp")
   local luasnip = require("luasnip")
   local lspkind = require("lspkind")
   local function _11_(args)
-    return (require("luasnip")).lsp_expand(args.body)
+    return require("luasnip").lsp_expand(args.body)
   end
   local function _12_(entry, vim_item)
     local cmp_format = lspkind.cmp_format({mode = "symbol_text", symbol_map = {Codeium = "\239\131\144"}})
