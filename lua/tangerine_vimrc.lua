@@ -1,4 +1,4 @@
--- :fennel:1722617692
+-- :fennel:1722617846
 local lazy = require("lazy")
 do end (vim.g)["mapleader"] = " "
 vim.g["maplocalleader"] = "\\"

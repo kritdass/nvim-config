@@ -138,5 +138,4 @@
                                                               [{:name :buffer}
                                                                {:name :emoji}
                                                                {:name :cmp_yanky
-                                                                :option {:onlyCurrentFiletype true}}])
-                                 :experimental {:ghost_text {:hl_group :CmpGhostText}}})))})]
+                                                                :option {:onlyCurrentFiletype true}}])})))})]

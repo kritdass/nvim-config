@@ -15,4 +15,5 @@
                       {1 :z :group :fold}
                       {1 :g :group :goto}
                       {1 "]" :group :next}
-                      {1 "[" :group :prev}]}})
+                      {1 "[" :group :prev}]
+               :triggers [{1 :<auto> :mode :nxso}]}})

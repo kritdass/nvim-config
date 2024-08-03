@@ -1,4 +1,4 @@
--- :fennel:1722617638
+-- :fennel:1722728771
 local function _1_()
   require("mason-lspconfig").setup({automatic_installation = true})
   local function _2_(server)
@@ -73,6 +73,6 @@ local function _10_()
       return fallback()
     end
   end
-  return cmp.setup({snippet = {expand = _11_}, window = {completion = {winhighlight = "Normal:Pmenu,FloatBorder:Pmenu,Search:None", col_offset = -3, side_padding = 0}}, formatting = {fields = {"kind", "abbr", "menu"}, format = _12_}, mapping = cmp.mapping.preset.insert({["<Tab>"] = cmp.mapping(_13_, {"i", "s"}), ["<S-Tab>"] = cmp.mapping(_15_, {"i", "s"}), ["<C-b>"] = cmp.mapping.scroll_docs(-4), ["<C-f>"] = cmp.mapping.scroll_docs(4), ["<C-Space>"] = cmp.mapping.complete(), ["<C-e>"] = cmp.mapping.abort(), ["<CR>"] = cmp.mapping.confirm({select = true})}), sources = cmp.config.sources({{name = "nvim_lsp"}, {name = "luasnip"}, {name = "path"}, {name = "latex_symbols", option = {strategy = 0}}}, {{name = "buffer"}, {name = "emoji"}, {name = "cmp_yanky", option = {onlyCurrentFiletype = true}}}), experimental = {ghost_text = {hl_group = "CmpGhostText"}}})
+  return cmp.setup({snippet = {expand = _11_}, window = {completion = {winhighlight = "Normal:Pmenu,FloatBorder:Pmenu,Search:None", col_offset = -3, side_padding = 0}}, formatting = {fields = {"kind", "abbr", "menu"}, format = _12_}, mapping = cmp.mapping.preset.insert({["<Tab>"] = cmp.mapping(_13_, {"i", "s"}), ["<S-Tab>"] = cmp.mapping(_15_, {"i", "s"}), ["<C-b>"] = cmp.mapping.scroll_docs(-4), ["<C-f>"] = cmp.mapping.scroll_docs(4), ["<C-Space>"] = cmp.mapping.complete(), ["<C-e>"] = cmp.mapping.abort(), ["<CR>"] = cmp.mapping.confirm({select = true})}), sources = cmp.config.sources({{name = "nvim_lsp"}, {name = "luasnip"}, {name = "path"}, {name = "latex_symbols", option = {strategy = 0}}}, {{name = "buffer"}, {name = "emoji"}, {name = "cmp_yanky", option = {onlyCurrentFiletype = true}}})})
 end
 return {{"williamboman/mason.nvim", cmd = "Mason", build = "MasonUpdate", opts = {}}, {"williamboman/mason-lspconfig.nvim", event = {"BufReadPre", "BufNewFile"}, config = _1_}, {"neovim/nvim-lspconfig", event = {"BufReadPre", "BufNewFile"}, cmd = {"LspInfo", "LspInstall", "LspUninstall"}, config = _3_}, {"hrsh7th/nvim-cmp", event = "InsertEnter", dependencies = {"hrsh7th/cmp-nvim-lsp", "hrsh7th/cmp-buffer", "hrsh7th/cmp-path", "hrsh7th/cmp-emoji", "kdheepak/cmp-latex-symbols", "chrisgrieser/cmp_yanky", {"L3MON4D3/LuaSnip", build = "make install_jsregexp", dependencies = {{"rafamadriz/friendly-snippets", config = _9_}}}, "saadparwaiz1/cmp_luasnip", "onsails/lspkind.nvim"}, config = _10_}}
