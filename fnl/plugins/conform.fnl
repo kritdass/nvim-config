@@ -7,7 +7,11 @@
                                   :haskell [:fourmolu]
                                   :markdown [:mdformat]
                                   :clojure [:cljstyle]
-                                  :typescriptreact [[:prettierd :prettier]]
-                                  :javascriptreact [[:prettierd :prettier]]
+                                  :typescriptreact {1 :prettierd
+                                                    2 :prettier
+                                                    :stop_after_first true}
+                                  :javascriptreact {1 :prettierd
+                                                    2 :prettier
+                                                    :stop_after_first true}
                                   :_ [:trim_whitespace :trim_newlines]}
                :format_on_save {:lsp_fallback true :timeout_ms 500}}})
