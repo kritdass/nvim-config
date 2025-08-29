@@ -1,4 +1,4 @@
--- :fennel:1721574688
+-- :fennel:1756501860
 do
   local augid_1_ = vim.api.nvim_create_augroup("highlight-yank", {clear = true})
   local function _2_()
@@ -13,6 +13,6 @@ do
     vim.opt_local["spell"] = true
     return nil
   end
-  vim.api.nvim_create_autocmd({"FileType"}, {callback = _4_, group = augid_3_, pattern = {"markdown"}})
+  vim.api.nvim_create_autocmd({"FileType"}, {callback = _4_, group = augid_3_, pattern = {"markdown", "tex"}})
 end
-return (require("colorizer")).setup()
+return require("colorizer").setup()
