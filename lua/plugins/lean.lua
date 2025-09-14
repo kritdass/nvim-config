@@ -1,0 +1,2 @@
+-- :fennel:1757740311
+return {"Julian/lean.nvim", event = {"BufReadPre *.lean", "BufNewFile *.lean"}, dependencies = {"neovim/nvim-lspconfig", "nvim-lua/plenary.nvim", "hrsh7th/nvim-cmp", "nvim-telescope/telescope.nvim"}, opts = {mappings = true}}

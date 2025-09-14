@@ -1,4 +1,4 @@
--- :fennel:1756498149
+-- :fennel:1756501876
 local function _1_()
   vim.g["vimtex_compiler_method"] = "latexmk"
   vim.g["vimtex_view_general_viewer"] = "sumatra"

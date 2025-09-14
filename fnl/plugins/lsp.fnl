@@ -1,7 +1,7 @@
 (import-macros {: plug! : require! : vim!} :macros)
 (import-macros {: augroup!} :hibiscus.vim)
 
-[(plug! :williamboman/mason.nvim {:cmd :Mason :build :MasonUpdate :opts {}})
+[(plug! :williamboman/mason.nvim {:build :MasonUpdate :opts {}})
  (plug! :williamboman/mason-lspconfig.nvim
         {:event [:BufReadPre :BufNewFile]
          :config (fn []
