@@ -7,7 +7,7 @@
            (fn [] ((vim! :highlight.on_yank)))])
 
 (augroup! :wrap-spell [[:FileType]
-                       [:markdown :tex]
+                       [:markdown :tex :text :trouble]
                        (fn [] (setlocal! :wrap)
                          (setlocal! :spell))])
 
