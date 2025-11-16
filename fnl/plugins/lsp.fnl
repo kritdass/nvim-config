@@ -9,13 +9,19 @@
                    ((require! :mason-lspconfig :setup_handlers) [(fn [server]
                                                                    (let [lspconfig (require :lspconfig)
                                                                          capabilities ((require! :cmp_nvim_lsp
-                                                                                                 :default_capabilities) ((vim! :lsp.protocol.make_client_capabilities)))]
+                                                                                                 :default_capabilities) ((vim! :lsp.protocol.make_client_capabilities)))
+                                                                         root_dir (fn [filename
+                                                                                       bufnr]
+                                                                                    (or ((vim! :fs.root) bufnr
+                                                                                                         [:.git])
+                                                                                        ((vim! :fn.expand) "%:p:h")))]
                                                                      (set capabilities.textDocument.foldingRange
                                                                           {:dynamicRegistration false
                                                                            :lineFoldingOnly true})
                                                                      ((. lspconfig
                                                                          server
-                                                                         :setup) {: capabilities})))]))})
+                                                                         :setup) {: capabilities
+                                                                                  : root_dir})))]))})
  (plug! :neovim/nvim-lspconfig
         {:event [:BufReadPre :BufNewFile]
          :cmd [:LspInfo :LspInstall :LspUninstall]

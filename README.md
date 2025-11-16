@@ -4,7 +4,7 @@ This repository stores my Neovim configuration meant for general programming use
 
 ## Features & Plugins
 
-- 🚀 Fast (20-30 ms startup time)
+- 🚀 Fast (40-50 ms startup time)
 - 🍊 Written in [Fennel](https://fennel-lang.org) via [tangerine](https://github.com/udayvir-singh/tangerine.nvim)
 - 💤 Lazy-loading and package management with [lazy](https://github.com/folke/lazy.nvim)
 - ⚙️  Automatic LSP server setup with [mason](https://github.com/williamboman/mason.nvim) and [mason-lspconfig](https://github.com/williamboman/mason-lspconfig.nvim)
@@ -14,6 +14,7 @@ This repository stores my Neovim configuration meant for general programming use
 - 🎛️ Dashboard with [dashboard](https://github.com/nvimdev/dashboard-nvim)
 - ⌚ Status line with [lualine](https://github.com/nvim-lualine/lualine.nvim)
 - 📑 Buffer line with [bufferline](https://github.com/akinsho/bufferline.nvim)
+- 🏓 Animations with [mini.animate](https://github.com/nvim-mini/mini.animate)
 - 🍞 Breadcrumbs with [barbecue](https://github.com/utilyre/barbecue.nvim)
 - 📁 File tree and symbols outline with [neotree](https://github.com/nvim-neo-tree/neo-tree.nvim)
 - ⚡ Jumping and searching with [flash](https://github.com/folke/flash.nvim)

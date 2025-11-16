@@ -7,8 +7,11 @@
            (fn [] ((vim! :highlight.on_yank)))])
 
 (augroup! :wrap-spell [[:FileType]
-                       [:markdown :tex :text :trouble]
+                       [:markdown :tex :text :trouble :typst]
                        (fn [] (setlocal! :wrap)
                          (setlocal! :spell))])
 
 ((require! :colorizer :setup))
+
+(augroup! :typst-preview [[:BufRead :BufNewFile] :*.typ :TypstPreview]
+          [[:BufWipeout] :*.typ :TypstPreviewStop])
