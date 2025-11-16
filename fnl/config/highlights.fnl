@@ -7,8 +7,8 @@
 (hl! :DashboardDesc {:fg colors.green})
 (hl! :DashboardFooter {:fg colors.yellow})
 
-(hl! :PmenuSel {:bg "#282C34" :fg :NONE})
-(hl! :Pmenu {:fg "#C5CDD9" :bg "#22252A"})
+(hl! :PmenuSel {:bg colors.gray :fg :NONE})
+(hl! :Pmenu {:fg colors.fg :bg "#EAEAEA"})
 (hl! :CmpGhostText {:fg colors.gray2})
 (hl! :CmpItemAbbrDeprecated {:fg "#7E8294" :bg :NONE :strikethrough true})
 (hl! :CmpItemAbbrMatch {:fg "#82AAFF" :bg :NONE :bold true})

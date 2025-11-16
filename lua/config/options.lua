@@ -1,5 +1,5 @@
--- :fennel:1722617638
-vim.cmd("colorscheme onedark_vivid")
+-- :fennel:1763271679
+vim.cmd("colorscheme onelight")
 do end (vim.opt)["number"] = true
 vim.opt["relativenumber"] = true
 vim.opt["cursorline"] = true

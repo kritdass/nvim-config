@@ -1,7 +1,7 @@
 (import-macros {: set! : set+ : color!} :hibiscus.vim)
 (import-macros {: vim!} :macros)
 
-(color! :onedark_vivid)
+(color! :onelight)
 
 (set! :number)
 (set! :relativenumber)

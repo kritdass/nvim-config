@@ -3,7 +3,7 @@
 
 (local bubbles {:normal {:a {:fg colors.bg :bg colors.green}
                          :b {:fg colors.fg :bg colors.gray}
-                         :c {:fg colors.fg :bg colors.black}}
+                         :c {:fg colors.fg :bg colors.gray2}}
                 :insert {:a {:fg colors.bg :bg colors.blue}}
                 :visual {:a {:fg colors.bg :bg colors.yellow}}
                 :replace {:a {:fg colors.bg :bg colors.red}}
@@ -11,7 +11,7 @@
                 :terminal {:a {:fg colors.bg :bg colors.cyan}}
                 :inactive {:a {:fg colors.fg :bg colors.bg}
                            :b {:fg colors.fg :bg colors.bg}
-                           :c {:fg colors.bg :bg colors.fg}}})
+                           :c {:fg colors.bg :bg colors.bg}}})
 
 (plug! :nvim-lualine/lualine.nvim
        {:event :VeryLazy
