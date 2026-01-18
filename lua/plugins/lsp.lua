@@ -1,9 +1,9 @@
--- :fennel:1763606810
+-- :fennel:1768770680
 local function _1_()
   do end (require("mason-lspconfig")).setup({automatic_installation = true})
   local function _2_(server)
     local lspconfig = require("lspconfig")
-    local capabilities = (require("cmp_nvim_lsp")).default_capabilities(vim.lsp.protocol.make_client_capabilities())
+    local capabilities = (require("blink.cmp")).get_lsp_capabilities(vim.lsp.protocol.make_client_capabilities())
     local root_dir
     local function _3_(filename, bufnr)
       return (vim.fs.root(bufnr, {".git"}) or vim.fn.expand("%:p:h"))
@@ -42,42 +42,4 @@ local function _4_()
   end
   return vim.api.nvim_create_autocmd({"LspAttach"}, {callback = _6_, desc = "Lsp actions", group = augid_5_, pattern = "*"})
 end
-local function _10_()
-  return (require("luasnip.loaders.from_vscode")).lazy_load()
-end
-local function _11_()
-  local cmp = require("cmp")
-  local luasnip = require("luasnip")
-  local lspkind = require("lspkind")
-  local function _12_(args)
-    return (require("luasnip")).lsp_expand(args.body)
-  end
-  local function _13_(entry, vim_item)
-    local cmp_format = lspkind.cmp_format({mode = "symbol_text", symbol_map = {Codeium = "\239\131\144"}})
-    local kind = cmp_format(entry, vim_item)
-    local strings = vim.split(kind.kind, "%s", {trimempty = true})
-    kind.kind = (" " .. (strings[1] or "") .. " ")
-    kind.menu = ("    (" .. (strings[2] or "") .. ")")
-    return kind
-  end
-  local function _14_(fallback)
-    if cmp.visible() then
-      return cmp.select_next_item()
-    elseif luasnip.expand_or_jumpable() then
-      return luasnip.expand_or_jump()
-    else
-      return fallback()
-    end
-  end
-  local function _16_(fallback)
-    if cmp.visible() then
-      return cmp.select_prev_item()
-    elseif luasnip.jumpable(-1) then
-      return luasnip.jump(-1)
-    else
-      return fallback()
-    end
-  end
-  return cmp.setup({snippet = {expand = _12_}, window = {completion = {winhighlight = "Normal:Pmenu,FloatBorder:Pmenu,Search:None", col_offset = -3, side_padding = 0}}, formatting = {fields = {"kind", "abbr", "menu"}, format = _13_}, mapping = cmp.mapping.preset.insert({["<Tab>"] = cmp.mapping(_14_, {"i", "s"}), ["<S-Tab>"] = cmp.mapping(_16_, {"i", "s"}), ["<C-b>"] = cmp.mapping.scroll_docs(-4), ["<C-f>"] = cmp.mapping.scroll_docs(4), ["<C-Space>"] = cmp.mapping.complete(), ["<C-e>"] = cmp.mapping.abort(), ["<CR>"] = cmp.mapping.confirm({select = true})}), sources = cmp.config.sources({{name = "nvim_lsp"}, {name = "luasnip"}, {name = "path"}, {name = "latex_symbols", option = {strategy = 0}}}, {{name = "buffer"}, {name = "emoji"}, {name = "cmp_yanky", option = {onlyCurrentFiletype = true}}})})
-end
-return {{"williamboman/mason.nvim", build = ":MasonUpdate", opts = {}}, {"williamboman/mason-lspconfig.nvim", event = {"BufReadPre", "BufNewFile"}, config = _1_}, {"neovim/nvim-lspconfig", event = {"BufReadPre", "BufNewFile"}, cmd = {"LspInfo", "LspInstall", "LspUninstall"}, config = _4_}, {"hrsh7th/nvim-cmp", event = "InsertEnter", dependencies = {"hrsh7th/cmp-nvim-lsp", "hrsh7th/cmp-buffer", "hrsh7th/cmp-path", "hrsh7th/cmp-emoji", "kdheepak/cmp-latex-symbols", "chrisgrieser/cmp_yanky", {"L3MON4D3/LuaSnip", build = "make install_jsregexp", dependencies = {{"rafamadriz/friendly-snippets", config = _10_}}}, "saadparwaiz1/cmp_luasnip", "onsails/lspkind.nvim"}, config = _11_}}
+return {{"williamboman/mason.nvim", build = ":MasonUpdate", opts = {}}, {"williamboman/mason-lspconfig.nvim", event = {"BufReadPre", "BufNewFile"}, config = _1_}, {"neovim/nvim-lspconfig", event = {"BufReadPre", "BufNewFile"}, cmd = {"LspInfo", "LspInstall", "LspUninstall"}, config = _4_}, {"saghen/blink.cmp", version = "1.*", dependencies = {"rafamadriz/friendly-snippets"}, opts = {keymap = {preset = "default", ["<Tab>"] = {"select_next", "fallback"}, ["<S-Tab>"] = {"select_next", "fallback"}, ["<CR>"] = {"accept", "fallback"}, ["<C-space>"] = {"show_documentation", "hide_documentation"}}, appearance = {nerd_font_variant = "normal"}, completion = {documentation = {auto_show = true}, ghost_text = {enabled = true}}, sources = {default = {"lsp", "path", "snippets", "buffer"}}}, opts_extend = {"sources.default"}}}

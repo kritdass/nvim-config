@@ -8,8 +8,8 @@
                    ((require! :mason-lspconfig :setup) {:automatic_installation true})
                    ((require! :mason-lspconfig :setup_handlers) [(fn [server]
                                                                    (let [lspconfig (require :lspconfig)
-                                                                         capabilities ((require! :cmp_nvim_lsp
-                                                                                                 :default_capabilities) ((vim! :lsp.protocol.make_client_capabilities)))
+                                                                         capabilities ((require! :blink.cmp
+                                                                                                 :get_lsp_capabilities) ((vim! :lsp.protocol.make_client_capabilities)))
                                                                          root_dir (fn [filename
                                                                                        bufnr]
                                                                                     (or ((vim! :fs.root) bufnr
@@ -67,81 +67,16 @@
                                   (map :n :<leader>ct
                                        "<cmd>lua vim.lsp.buf.type_definition()<cr>"
                                        "Type definition")))]))})
- (plug! :hrsh7th/nvim-cmp
-        {:event :InsertEnter
-         :dependencies [:hrsh7th/cmp-nvim-lsp
-                        :hrsh7th/cmp-buffer
-                        :hrsh7th/cmp-path
-                        :hrsh7th/cmp-emoji
-                        :kdheepak/cmp-latex-symbols
-                        :chrisgrieser/cmp_yanky
-                        (plug! :L3MON4D3/LuaSnip
-                               {:build "make install_jsregexp"
-                                :dependencies [(plug! :rafamadriz/friendly-snippets
-                                                      {:config (fn []
-                                                                 ((require! :luasnip.loaders.from_vscode
-                                                                            :lazy_load)))})]})
-                        :saadparwaiz1/cmp_luasnip
-                        :onsails/lspkind.nvim]
-         :config (fn []
-                   (let [cmp (require :cmp)
-                         luasnip (require :luasnip)
-                         lspkind (require :lspkind)]
-                     (cmp.setup {:snippet {:expand (fn [args]
-                                                     ((require! :luasnip
-                                                                :lsp_expand) args.body))}
-                                 :window {:completion {:winhighlight "Normal:Pmenu,FloatBorder:Pmenu,Search:None"
-                                                       :col_offset -3
-                                                       :side_padding 0}}
-                                 :formatting {:fields [:kind :abbr :menu]
-                                              :format (fn [entry vim-item]
-                                                        (let [cmp-format (lspkind.cmp_format {:mode :symbol_text
-                                                                                              :symbol_map {:Codeium ""}})
-                                                              kind (cmp-format entry
-                                                                               vim-item)
-                                                              strings ((vim! :split) kind.kind
-                                                                                     "%s"
-                                                                                     {:trimempty true})]
-                                                          (set kind.kind
-                                                               (.. " "
-                                                                   (or (. strings
-                                                                          1)
-                                                                       "")
-                                                                   " "))
-                                                          (set kind.menu
-                                                               (.. "    ("
-                                                                   (or (. strings
-                                                                          2)
-                                                                       "")
-                                                                   ")"))
-                                                          kind))}
-                                 :mapping (cmp.mapping.preset.insert {:<Tab> (cmp.mapping (fn [fallback]
-                                                                                            (if (cmp.visible)
-                                                                                                (cmp.select_next_item)
-                                                                                                (luasnip.expand_or_jumpable)
-                                                                                                (luasnip.expand_or_jump)
-                                                                                                (fallback)))
-                                                                                          [:i
-                                                                                           :s])
-                                                                      :<S-Tab> (cmp.mapping (fn [fallback]
-                                                                                              (if (cmp.visible)
-                                                                                                  (cmp.select_prev_item)
-                                                                                                  (luasnip.jumpable -1)
-                                                                                                  (luasnip.jump -1)
-                                                                                                  (fallback)))
-                                                                                            [:i
-                                                                                             :s])
-                                                                      :<C-b> (cmp.mapping.scroll_docs -4)
-                                                                      :<C-f> (cmp.mapping.scroll_docs 4)
-                                                                      :<C-Space> (cmp.mapping.complete)
-                                                                      :<C-e> (cmp.mapping.abort)
-                                                                      :<CR> (cmp.mapping.confirm {:select true})})
-                                 :sources (cmp.config.sources [{:name :nvim_lsp}
-                                                               {:name :luasnip}
-                                                               {:name :path}
-                                                               {:name :latex_symbols
-                                                                :option {:strategy 0}}]
-                                                              [{:name :buffer}
-                                                               {:name :emoji}
-                                                               {:name :cmp_yanky
-                                                                :option {:onlyCurrentFiletype true}}])})))})]
+ (plug! :saghen/blink.cmp
+        {:version :1.*
+         :dependencies [:rafamadriz/friendly-snippets]
+         :opts {:keymap {:preset :default
+                         :<Tab> [:select_next :fallback]
+                         :<S-Tab> [:select_next :fallback]
+                         :<CR> [:accept :fallback]
+                         :<C-space> [:show_documentation :hide_documentation]}
+                :appearance {:nerd_font_variant :normal}
+                :completion {:documentation {:auto_show true}
+                             :ghost_text {:enabled true}}
+                :sources {:default [:lsp :path :snippets :buffer]}}
+         :opts_extend [:sources.default]})]
