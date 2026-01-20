@@ -1,2 +1,2 @@
--- :fennel:1721574688
+-- [nfnl] fnl/plugins/pairs.fnl
 return {"echasnovski/mini.pairs", event = "VeryLazy", opts = {}}

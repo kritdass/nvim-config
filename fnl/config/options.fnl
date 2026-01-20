@@ -1,5 +1,4 @@
-(import-macros {: set! : set+ : color!} :hibiscus.vim)
-(import-macros {: vim!} :macros)
+(import-macros {: set! : set+ : color! : vim!} :macros)
 
 (color! :onelight)
 

@@ -1,2 +1,2 @@
--- :fennel:1768887988
+-- [nfnl] fnl/plugins/lean.fnl
 return {"Julian/lean.nvim", event = {"BufReadPre *.lean", "BufNewFile *.lean"}, dependencies = {"neovim/nvim-lspconfig", "nvim-lua/plenary.nvim", "saghen/blink.cmp"}, opts = {mappings = true, infoview = {orientation = "horizontal"}}}

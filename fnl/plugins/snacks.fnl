@@ -17,9 +17,9 @@
                :picker {:enabled true}
                :zen {:enabled true}
                :dim {:enabled true}
-               :quickfile {:enabled true :exclude [:typst :snacks_dashboard]}
+               :quickfile {:enabled true}
                :scroll {:enabled true}
-               :statuscol {:enabled true}
+               :statuscolumn {:enabled true}
                :rename {:enabled true}
                :lazygit {:enabled true}
                :indent {:enabled true}

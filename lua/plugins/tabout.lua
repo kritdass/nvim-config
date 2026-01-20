@@ -1,2 +1,2 @@
--- :fennel:1721574688
+-- [nfnl] fnl/plugins/tabout.fnl
 return {"abecodes/tabout.nvim", opts = {}, event = {"BufReadPost", "BufNewFile"}}

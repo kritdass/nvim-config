@@ -1,2 +1,2 @@
--- :fennel:1721579957
+-- [nfnl] fnl/plugins/trouble.fnl
 return {"folke/trouble.nvim", cmd = "Trouble", opts = {}}

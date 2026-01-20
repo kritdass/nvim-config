@@ -1,4 +1,4 @@
-(import-macros {: plug! : vim! : require!} :macros)
+(import-macros {: plug! : vim!} :macros)
 
 (fn handler [virt-text lnum end-lnum width truncate]
   (var new-virt-text {})
@@ -24,26 +24,7 @@
   (table.insert new-virt-text [suffix :MoreMsg])
   new-virt-text)
 
-(local ft-exclude [:help
-                   :snacks_dashboard
-                   :snacks_picker_list
-                   :Trouble
-                   :lazy
-                   :mason
-                   :snacks_terminal])
-
 (plug! :kevinhwang91/nvim-ufo
        {:event [:BufReadPost :BufNewFile]
         :dependencies [:kevinhwang91/promise-async]
-        :opts {:fold_virt_text_handler handler
-               :provider_selector (fn [_ ft _]
-                                    (let [nofold [:markdown
-                                                  :sh
-                                                  :css
-                                                  :html
-                                                  :python
-                                                  :fennel]]
-                                      (if ((vim! :tbl_contains) nofold ft)
-                                          [:treesitter :indent]
-                                          [:lsp :indent])))
-               :filetype_exclude ft-exclude}})
+        :opts {:fold_virt_text_handler handler}})

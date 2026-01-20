@@ -1,4 +1,4 @@
--- :fennel:1721574688
+-- [nfnl] fnl/config/init.fnl
 require("config.options")
 require("config.keymaps")
 require("config.highlights")

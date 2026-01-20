@@ -1,29 +1,17 @@
-(import-macros {: plug! : require!} :macros)
-
-(local textobj-opts
-       {:textobjects {:select {:enable true
-                               :lookahead true
-                               :keymaps {:af {:query "@function.outer"
-                                              :desc "a function"}
-                                         :if {:query "@function.inner"
-                                              :desc "inner function"}
-                                         :ac {:query "@class.outer"
-                                              :desc "a class"}
-                                         :ic {:query "@class.inner"
-                                              :desc "inner class"}}}}})
+(import-macros {: plug! : g! : require!} :macros)
 
 (plug! :nvim-treesitter/nvim-treesitter
-       {:event :VeryLazy
+       {:branch :master
         :build ":TSUpdate"
+        :version false
+        :event [:BufReadPost :BufNewFile :VeryLazy]
         :dependencies [:nvim-treesitter/nvim-treesitter-context
                        (plug! :nvim-treesitter/nvim-treesitter-textobjects
-                              {:config (fn []
-                                         ((require! :nvim-treesitter.configs
-                                                    :setup) textobj-opts))})]
-        :version false
+                              {:branch :main
+                               :init (fn [] (g! :no_plugin_maps true))})]
         :opts {:highlight {:enable true}
                :indent {:enable true}
                :sync_install false
                :auto_install true
-               :ensure_installed [:c :lua :vim :vimdoc :query]}
+               :ensure_installed [:c :lua :vim :vimdoc :query :fennel]}
         :config (fn [_ opts] ((require! :nvim-treesitter.configs :setup) opts))})

@@ -1,5 +1,4 @@
-(import-macros {: augroup! : setlocal!} :hibiscus.vim)
-(import-macros {: vim! : require!} :macros)
+(import-macros {: vim! : require! : augroup! : setlocal!} :macros)
 
 (augroup! :highlight-yank
           [[:TextYankPost :desc "Highlight selection on yank"]

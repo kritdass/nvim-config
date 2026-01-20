@@ -1,5 +1,5 @@
 (import-macros {: hl!} :macros)
-(local colors (require :colors))
+(local colors (require :config.colors))
 
 (hl! :DashboardHeader {:fg colors.blue})
 (hl! :DashboardKey {:fg colors.purple})

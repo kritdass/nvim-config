@@ -1,5 +1,4 @@
-(import-macros {: map! : setlocal!} :hibiscus.vim)
-(import-macros {: vim! : get!} :macros)
+(import-macros {: map! : setlocal! : get!} :macros)
 
 (map! [:nixs :silent] :<C-s> "<cmd>:silent w<cr><esc>" "Save file")
 (map! [:n :silent] :<leader>s "<cmd>:silent w<cr><esc>" "Save file")

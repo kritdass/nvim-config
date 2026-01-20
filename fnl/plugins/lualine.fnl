@@ -1,5 +1,5 @@
 (import-macros {: plug!} :macros)
-(local colors (require :colors))
+(local colors (require :config.colors))
 
 (local bubbles {:normal {:a {:fg colors.bg :bg colors.green}
                          :b {:fg colors.fg :bg colors.gray}
@@ -15,7 +15,12 @@
 
 (plug! :nvim-lualine/lualine.nvim
        {:event :VeryLazy
-        :dependencies [:nvim-tree/nvim-web-devicons]
+        :dependencies [(plug! :nvim-mini/mini.icons
+                              {:init (fn []
+                                       (fn package.preload.nvim-web-devicons []
+                                         ((. (require :mini.icons)
+                                             :mock_nvim_web_devicons))
+                                         (. package :loaded :nvim-web-devicons)))})]
         :opts {:options {:theme bubbles
                          :component_separators "|"
                          :section_separators {:left "" :right ""}

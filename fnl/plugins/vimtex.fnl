@@ -1,5 +1,4 @@
-(import-macros {: plug!} :macros)
-(import-macros {: g!} :hibiscus.vim)
+(import-macros {: plug! : g!} :macros)
 
 (plug! :lervag/vimtex
        {:lazy false

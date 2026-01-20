@@ -1,10 +1,10 @@
--- :fennel:1722348419
+-- [nfnl] fnl/plugins/gitsigns.fnl
 local function _1_(buffer)
-  do end (require("scrollbar.handlers.gitsigns")).setup()
+  require("scrollbar.handlers.gitsigns").setup()
   local gs = package.loaded.gitsigns
   local map
   local function _2_(mode, lhs, rhs, desc)
-    return vim.keymap.set(mode, lhs, rhs, {buffer = buffer, desc = desc})
+    return _G.vim.keymap.set(mode, lhs, rhs, {buffer = buffer, desc = desc})
   end
   map = _2_
   map("n", "<leader>hg", "<cmd>Lazygit<cr>", "Lazygit")

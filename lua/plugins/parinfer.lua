@@ -1,2 +1,2 @@
--- :fennel:1721574688
+-- [nfnl] fnl/plugins/parinfer.fnl
 return {"gpanders/nvim-parinfer", ft = {"clojure", "lisp", "fennel"}}

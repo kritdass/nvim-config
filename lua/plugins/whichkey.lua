@@ -1,2 +1,2 @@
--- :fennel:1722729081
+-- [nfnl] fnl/plugins/whichkey.fnl
 return {"folke/which-key.nvim", event = "VeryLazy", opts = {spec = {{"<leader>t", group = "terminal"}, {"<leader>x", group = "trouble"}, {"<leader>h", group = "git"}, {"<leader>b", group = "buffer"}, {"<leader>f", group = "find"}, {"<leader>q", group = "quit"}, {"<leader>u", group = "toggle"}, {"<leader><tab>", group = "tab"}, {"<leader>w", group = "window"}, {"<leader>c", group = "lsp"}, {"z", group = "fold"}, {"g", group = "goto"}, {"]", group = "next"}, {"[", group = "prev"}}, triggers = {{"<auto>", mode = "nxso"}}}}

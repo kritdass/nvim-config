@@ -1,2 +1,2 @@
--- :fennel:1721574688
+-- [nfnl] fnl/plugins/persistence.fnl
 return {"folke/persistence.nvim", event = "BufReadPre", opts = {}}

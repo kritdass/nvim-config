@@ -1,2 +1,2 @@
--- :fennel:1768887988
+-- [nfnl] fnl/plugins/bufferline.fnl
 return {"akinsho/bufferline.nvim", event = "VeryLazy", opts = {options = {always_show_bufferline = false}}}
