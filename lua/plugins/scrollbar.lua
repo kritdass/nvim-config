@@ -1,2 +1,2 @@
--- :fennel:1721574688
-return {"petertriho/nvim-scrollbar", event = "VeryLazy", opts = {excluded_filetypes = {"help", "dashboard", "neo-tree", "Trouble", "lazy", "mason", "toggleterm"}}}
+-- :fennel:1768887988
+return {"petertriho/nvim-scrollbar", event = "VeryLazy", opts = {excluded_filetypes = {"help", "snacks_dashboard", "snacks_picker_list", "snacks_terminal", "Trouble", "lazy", "mason"}}}

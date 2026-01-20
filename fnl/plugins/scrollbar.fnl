@@ -3,9 +3,9 @@
 (plug! :petertriho/nvim-scrollbar
        {:event :VeryLazy
         :opts {:excluded_filetypes [:help
-                                    :dashboard
-                                    :neo-tree
+                                    :snacks_dashboard
+                                    :snacks_picker_list
+                                    :snacks_terminal
                                     :Trouble
                                     :lazy
-                                    :mason
-                                    :toggleterm]}})
+                                    :mason]}})

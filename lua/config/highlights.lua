@@ -1,4 +1,4 @@
--- :fennel:1768770552
+-- :fennel:1768887988
 local colors = require("colors")
 vim.api.nvim_set_hl(0, "DashboardHeader", {fg = colors.blue})
 vim.api.nvim_set_hl(0, "DashboardKey", {fg = colors.purple})
@@ -24,4 +24,5 @@ vim.api.nvim_set_hl(0, "BlinkCmpKindSnippet", {fg = "#50A14F", bg = "NONE"})
 vim.api.nvim_set_hl(0, "BlinkCmpKindString", {fg = "#50A14F", bg = "NONE"})
 vim.api.nvim_set_hl(0, "BlinkCmpKindConstant", {fg = "#0184BC", bg = "NONE"})
 vim.api.nvim_set_hl(0, "BlinkCmpKindFile", {fg = "#4078F2", bg = "NONE"})
-return vim.api.nvim_set_hl(0, "BlinkCmpKindFolder", {fg = "#4078F2", bg = "NONE"})
+vim.api.nvim_set_hl(0, "BlinkCmpKindFolder", {fg = "#4078F2", bg = "NONE"})
+return vim.api.nvim_set_hl(0, "SnacksDim", {fg = "#D0D0D0"})

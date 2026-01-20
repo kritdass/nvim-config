@@ -34,3 +34,5 @@
 
 (hl! :BlinkCmpKindFile {:fg "#4078F2" :bg :NONE})
 (hl! :BlinkCmpKindFolder {:fg "#4078F2" :bg :NONE})
+
+(hl! :SnacksDim {:fg "#D0D0D0"})

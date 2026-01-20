@@ -1,2 +1,0 @@
--- :fennel:1721574688
-return {"lukas-reineke/indent-blankline.nvim", main = "ibl", event = "BufRead", dependencies = {{"echasnovski/mini.indentscope", opts = {symbol = "\226\148\130", options = {try_as_border = true}}}}, opts = {indent = {char = "\226\148\130"}, scope = {enabled = false}}}

@@ -5,31 +5,37 @@
 (map! [:n :silent] :<leader>s "<cmd>:silent w<cr><esc>" "Save file")
 (map! [:n] :<leader>l :<cmd>Lazy<cr> :Lazy)
 (map! [:n] :<leader>m :<cmd>Mason<cr> :Mason)
-(map! [:n] :<leader>o "<cmd>Neotree document_symbols toggle position=right<cr>"
-      :Outline)
 
-(map! [:nt] :<leader>g :<cmd>Lazygit<cr> "Launch lazygit")
-
-(map! [:nt] :<leader>tg :<cmd>Lazygit<cr> "Launch lazygit")
-(map! [:n] :<leader>th "<cmd>ToggleTerm direction=horizontal<cr>"
+(map! [:nt] :<leader>g (fn [] ((. _G.Snacks :lazygit))) :Lazygit)
+(map! [:n] :<leader>th
+      (fn []
+        ((. _G.Snacks :terminal) nil {:win {:position :bottom :height 0.3}}))
       "Horizontal terminal")
 
-(map! [:n] :<leader>tv "<cmd>ToggleTerm direction=vertical size=70<cr>"
+(map! [:n] :<leader>tv
+      (fn []
+        ((. _G.Snacks :terminal) nil {:win {:position :right :width 0.4}}))
       "Vertical terminal")
 
-(map! [:n] :<leader>t- "<cmd>ToggleTerm direction=horizontal<cr>"
+(map! [:n] :<leader>t-
+      (fn []
+        ((. _G.Snacks :terminal) nil {:win {:position :bottom :height 0.3}}))
       "Horizontal terminal")
 
-(map! [:n] "<leader>t\\" "<cmd>ToggleTerm direction=vertical size=70<cr>"
+(map! [:n] "<leader>t\\"
+      (fn []
+        ((. _G.Snacks :terminal) nil {:win {:position :right :width 0.4}}))
       "Vertical terminal")
 
-(map! [:n] :<leader>tf "<cmd>ToggleTerm direction=float<cr>"
+(map! [:n] :<leader>tf
+      (fn []
+        ((. _G.Snacks :terminal) nil {:win {:position :float}}))
       "Floating terminal")
 
-(map! [:n] :<leader>tt "<cmd>ToggleTerm direction=tab<cr>" "Tab terminal")
-
 (map! [:t] :<esc> "<C-\\><C-n>" "Enter normal mode")
-(map! [:nixst] "<C-\\>" :<cmd>ToggleTermToggleAll<cr> "Toggle terminal")
+
+(map! [:nixst] "<C-\\>" (fn [] ((. _G.Snacks.terminal :toggle)))
+      "Toggle terminal")
 
 (map! [:n] :<leader>xx "<cmd>Trouble diagnostics toggle<cr>" :Trouble)
 
@@ -37,27 +43,38 @@
 
 (map! [:n] :<leader>xl "<cmd>Trouble loclist toggle<cr>" "Location list")
 
-(map! [:n] :<leader>e "<cmd>Neotree toggle<cr>" :Neotree)
+(map! [:n] :<leader>e (fn [] ((. _G.Snacks :explorer))) :Explorer)
 
-(map! [:n] :<leader>ff "<cmd>Telescope find_files<cr>" "Find files")
-(map! [:n] :<leader>fc "<cmd>Telescope find_files cwd=$HOME/.config/nvim<cr>"
+(map! [:n] :<leader>ff (fn [] ((. _G.Snacks.picker :files))) "Find files")
+
+(map! [:n] :<leader>fc
+      (fn []
+        ((. _G.Snacks.picker :files {:cwd :$HOME/.config/nvim})))
       "Config files")
 
-(map! [:n] :<leader>fs "<cmd>Telescope colorscheme enable_preview=true<cr>"
+(map! [:n] :<leader>fs (fn [] ((. _G.Snacks.picker :colorschemes)))
       "Find colorscheme")
 
-(map! [:n] :<leader>fr "<cmd>Telescope oldfiles<cr>" "Recent files")
-(map! [:n] :<leader>fu "<cmd>Telescope undo<cr>" "Undo history")
-(map! [:n] :<leader>fy "<cmd>Telescope yank_history<cr>" "Yank history")
-(map! [:n] :<leader>fm "<cmd>Telescope man_pages<cr>" "Find man pages")
-(map! [:n] :<leader>fk "<cmd>Telescope keymaps<cr>" "Find keymaps")
-(map! [:n] :<leader>fb "<cmd>Telescope current_buffer_fuzzy_find<cr>"
-      "Search buffer")
+(map! [:n] :<leader>fr (fn [] ((. _G.Snacks.picker :recent))) "Recent files")
 
-(map! [:n] :<leader>fg "<cmd>Telescope git_commits<cr>" "Search Git commits")
-(map! [:n] :<leader>fa "<cmd>Telescope aerial<cr>" "Search symbols")
-(map! [:n] :<leader>fh "<cmd>Telescope help_tags<cr>" "Search help tags")
+(map! [:n] :<leader>fu (fn [] ((. _G.Snacks.picker :undo))) "Undo history")
 
+(map! [:n] :<leader>ft (fn [] ((. _G.Snacks.picker :grep))) :Grep)
+
+(map! [:n] :<leader>fm (fn [] ((. _G.Snacks.picker :man))) "Find man pages")
+
+(map! [:n] :<leader>fk (fn [] ((. _G.Snacks.picker :keymaps))) "Find keymaps")
+
+(map! [:n] :<leader>fb (fn [] ((. _G.Snacks.picker :lines)))
+      "Search buffer lines")
+
+(map! [:n] :<leader>fg (fn [] ((. _G.Snacks.picker :git_log)))
+      "Search Git commits")
+
+(map! [:n] :<leader>fa (fn [] ((. _G.Snacks.picker :lsp_symbols)))
+      "Search symbols")
+
+(map! [:n] :<leader>fh (fn [] ((. _G.Snacks.picker :help))) "Search help tags")
 (map! [:n] :<leader>ww :<C-w>w "Other window")
 (map! [:n] :<leader>wd :<C-w>c "Delete window")
 (map! [:n] :<leader>wh :<C-w>s "Split window horizontally")
@@ -109,11 +126,15 @@
   (map! [:n] :<leader>uw (toggle :wrap) "Toggle wrap")
   (map! [:n] :<leader>ur (toggle :relativenumber) "Toggle relative numbers")
   (map! [:n] :<leader>un (toggle :number) "Toggle line numbers")
-  (map! [:n] :<leader>uc :<cmd>ColorizerToggle<cr> "Toggle colorizer")
   (map! [:n] :<leader>ux :<cmd>TSContextToggle<cr> "Toggle context")
   (map! [:n] :<leader>ub "<cmd>Barbecue toggle<cr>" "Toggle breadcrumbs")
-  (map! [:n] :<leader>uz :<cmd>ZenMode<cr> "Toggle zen mode")
-  (map! [:n] :<leader>uf :<cmd>Twilight<cr> "Toggle focus")
+  (map! [:n] :<leader>uz (fn [] ((. _G.Snacks :zen))) "Toggle zen mode")
+  (map! [:n] :<leader>ud
+        (fn []
+          (if (. _G.Snacks.dim :enabled)
+              ((. _G.Snacks.dim :disable))
+              ((. _G.Snacks.dim :enable)))) "Toggle dim")
+  "Toggle dim"
   (map! [:n] :<leader>uh
         (fn []
           (if (= (get! :conceallevel) 0)

@@ -1,2 +1,2 @@
--- :fennel:1721574688
-return {"akinsho/bufferline.nvim", event = "VeryLazy", opts = {options = {offsets = {{filetype = "neo-tree", text = "tree", highlight = "Directory", text_align = "left"}}, always_show_bufferline = false}}}
+-- :fennel:1768887988
+return {"akinsho/bufferline.nvim", event = "VeryLazy", opts = {options = {always_show_bufferline = false}}}

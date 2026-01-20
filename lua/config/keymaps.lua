@@ -1,35 +1,92 @@
--- :fennel:1763274216
+-- :fennel:1768887988
 vim.keymap.set({"n", "i", "x", "s"}, "<C-s>", "<cmd>:silent w<cr><esc>", {desc = "Save file", silent = true})
 vim.keymap.set({"n"}, "<leader>s", "<cmd>:silent w<cr><esc>", {desc = "Save file", silent = true})
 vim.keymap.set({"n"}, "<leader>l", "<cmd>Lazy<cr>", {desc = "Lazy", silent = true})
 vim.keymap.set({"n"}, "<leader>m", "<cmd>Mason<cr>", {desc = "Mason", silent = true})
-vim.keymap.set({"n"}, "<leader>o", "<cmd>Neotree document_symbols toggle position=right<cr>", {desc = "Outline", silent = true})
-vim.keymap.set({"n", "t"}, "<leader>g", "<cmd>Lazygit<cr>", {desc = "Launch lazygit", silent = true})
-vim.keymap.set({"n", "t"}, "<leader>tg", "<cmd>Lazygit<cr>", {desc = "Launch lazygit", silent = true})
-vim.keymap.set({"n"}, "<leader>th", "<cmd>ToggleTerm direction=horizontal<cr>", {desc = "Horizontal terminal", silent = true})
-vim.keymap.set({"n"}, "<leader>tv", "<cmd>ToggleTerm direction=vertical size=70<cr>", {desc = "Vertical terminal", silent = true})
-vim.keymap.set({"n"}, "<leader>t-", "<cmd>ToggleTerm direction=horizontal<cr>", {desc = "Horizontal terminal", silent = true})
-vim.keymap.set({"n"}, "<leader>t\\", "<cmd>ToggleTerm direction=vertical size=70<cr>", {desc = "Vertical terminal", silent = true})
-vim.keymap.set({"n"}, "<leader>tf", "<cmd>ToggleTerm direction=float<cr>", {desc = "Floating terminal", silent = true})
-vim.keymap.set({"n"}, "<leader>tt", "<cmd>ToggleTerm direction=tab<cr>", {desc = "Tab terminal", silent = true})
+local function _1_()
+  return _G.Snacks.lazygit()
+end
+vim.keymap.set({"n", "t"}, "<leader>g", _1_, {desc = "Lazygit", silent = true})
+local function _2_()
+  return _G.Snacks.terminal(nil, {win = {position = "bottom", height = 0.3}})
+end
+vim.keymap.set({"n"}, "<leader>th", _2_, {desc = "Horizontal terminal", silent = true})
+local function _3_()
+  return _G.Snacks.terminal(nil, {win = {position = "right", width = 0.4}})
+end
+vim.keymap.set({"n"}, "<leader>tv", _3_, {desc = "Vertical terminal", silent = true})
+local function _4_()
+  return _G.Snacks.terminal(nil, {win = {position = "bottom", height = 0.3}})
+end
+vim.keymap.set({"n"}, "<leader>t-", _4_, {desc = "Horizontal terminal", silent = true})
+local function _5_()
+  return _G.Snacks.terminal(nil, {win = {position = "right", width = 0.4}})
+end
+vim.keymap.set({"n"}, "<leader>t\\", _5_, {desc = "Vertical terminal", silent = true})
+local function _6_()
+  return _G.Snacks.terminal(nil, {win = {position = "float"}})
+end
+vim.keymap.set({"n"}, "<leader>tf", _6_, {desc = "Floating terminal", silent = true})
 vim.keymap.set({"t"}, "<esc>", "<C-\\><C-n>", {desc = "Enter normal mode", silent = true})
-vim.keymap.set({"n", "i", "x", "s", "t"}, "<C-\\>", "<cmd>ToggleTermToggleAll<cr>", {desc = "Toggle terminal", silent = true})
+local function _7_()
+  return _G.Snacks.terminal.toggle()
+end
+vim.keymap.set({"n", "i", "x", "s", "t"}, "<C-\\>", _7_, {desc = "Toggle terminal", silent = true})
 vim.keymap.set({"n"}, "<leader>xx", "<cmd>Trouble diagnostics toggle<cr>", {desc = "Trouble", silent = true})
 vim.keymap.set({"n"}, "<leader>xq", "<cmd>Trouble qflist toggle<cr>", {desc = "Quickfix", silent = true})
 vim.keymap.set({"n"}, "<leader>xl", "<cmd>Trouble loclist toggle<cr>", {desc = "Location list", silent = true})
-vim.keymap.set({"n"}, "<leader>e", "<cmd>Neotree toggle<cr>", {desc = "Neotree", silent = true})
-vim.keymap.set({"n"}, "<leader>ff", "<cmd>Telescope find_files<cr>", {desc = "Find files", silent = true})
-vim.keymap.set({"n"}, "<leader>fc", "<cmd>Telescope find_files cwd=$HOME/.config/nvim<cr>", {desc = "Config files", silent = true})
-vim.keymap.set({"n"}, "<leader>fs", "<cmd>Telescope colorscheme enable_preview=true<cr>", {desc = "Find colorscheme", silent = true})
-vim.keymap.set({"n"}, "<leader>fr", "<cmd>Telescope oldfiles<cr>", {desc = "Recent files", silent = true})
-vim.keymap.set({"n"}, "<leader>fu", "<cmd>Telescope undo<cr>", {desc = "Undo history", silent = true})
-vim.keymap.set({"n"}, "<leader>fy", "<cmd>Telescope yank_history<cr>", {desc = "Yank history", silent = true})
-vim.keymap.set({"n"}, "<leader>fm", "<cmd>Telescope man_pages<cr>", {desc = "Find man pages", silent = true})
-vim.keymap.set({"n"}, "<leader>fk", "<cmd>Telescope keymaps<cr>", {desc = "Find keymaps", silent = true})
-vim.keymap.set({"n"}, "<leader>fb", "<cmd>Telescope current_buffer_fuzzy_find<cr>", {desc = "Search buffer", silent = true})
-vim.keymap.set({"n"}, "<leader>fg", "<cmd>Telescope git_commits<cr>", {desc = "Search Git commits", silent = true})
-vim.keymap.set({"n"}, "<leader>fa", "<cmd>Telescope aerial<cr>", {desc = "Search symbols", silent = true})
-vim.keymap.set({"n"}, "<leader>fh", "<cmd>Telescope help_tags<cr>", {desc = "Search help tags", silent = true})
+local function _8_()
+  return _G.Snacks.explorer()
+end
+vim.keymap.set({"n"}, "<leader>e", _8_, {desc = "Explorer", silent = true})
+local function _9_()
+  return _G.Snacks.picker.files()
+end
+vim.keymap.set({"n"}, "<leader>ff", _9_, {desc = "Find files", silent = true})
+local function _10_()
+  return _G.Snacks.picker.files[{cwd = "$HOME/.config/nvim"}]()
+end
+vim.keymap.set({"n"}, "<leader>fc", _10_, {desc = "Config files", silent = true})
+local function _11_()
+  return _G.Snacks.picker.colorschemes()
+end
+vim.keymap.set({"n"}, "<leader>fs", _11_, {desc = "Find colorscheme", silent = true})
+local function _12_()
+  return _G.Snacks.picker.recent()
+end
+vim.keymap.set({"n"}, "<leader>fr", _12_, {desc = "Recent files", silent = true})
+local function _13_()
+  return _G.Snacks.picker.undo()
+end
+vim.keymap.set({"n"}, "<leader>fu", _13_, {desc = "Undo history", silent = true})
+local function _14_()
+  return _G.Snacks.picker.grep()
+end
+vim.keymap.set({"n"}, "<leader>ft", _14_, {desc = "Grep", silent = true})
+local function _15_()
+  return _G.Snacks.picker.man()
+end
+vim.keymap.set({"n"}, "<leader>fm", _15_, {desc = "Find man pages", silent = true})
+local function _16_()
+  return _G.Snacks.picker.keymaps()
+end
+vim.keymap.set({"n"}, "<leader>fk", _16_, {desc = "Find keymaps", silent = true})
+local function _17_()
+  return _G.Snacks.picker.lines()
+end
+vim.keymap.set({"n"}, "<leader>fb", _17_, {desc = "Search buffer lines", silent = true})
+local function _18_()
+  return _G.Snacks.picker.git_log()
+end
+vim.keymap.set({"n"}, "<leader>fg", _18_, {desc = "Search Git commits", silent = true})
+local function _19_()
+  return _G.Snacks.picker.lsp_symbols()
+end
+vim.keymap.set({"n"}, "<leader>fa", _19_, {desc = "Search symbols", silent = true})
+local function _20_()
+  return _G.Snacks.picker.help()
+end
+vim.keymap.set({"n"}, "<leader>fh", _20_, {desc = "Search help tags", silent = true})
 vim.keymap.set({"n"}, "<leader>ww", "<C-w>w", {desc = "Other window", silent = true})
 vim.keymap.set({"n"}, "<leader>wd", "<C-w>c", {desc = "Delete window", silent = true})
 vim.keymap.set({"n"}, "<leader>wh", "<C-w>s", {desc = "Split window horizontally", silent = true})
@@ -57,30 +114,30 @@ vim.keymap.set({"n"}, "<leader>qt", "<cmd>tabclose<cr>", {desc = "Quit tab", sil
 vim.keymap.set({"n"}, "<leader>q<tab>", "<cmd>tabclose<cr>", {desc = "Quit tab", silent = true})
 do
   local sev
-  local function _1_(severity)
+  local function _21_(severity)
     if severity then
       return vim.diagnostic.severity[severity]
     else
       return nil
     end
   end
-  sev = _1_
+  sev = _21_
   local next
-  local function _3_(severity)
-    local function _4_()
+  local function _23_(severity)
+    local function _24_()
       return vim.diagnostic.goto_next({severity = sev(severity)})
     end
-    return _4_
+    return _24_
   end
-  next = _3_
+  next = _23_
   local prev
-  local function _5_(severity)
-    local function _6_()
+  local function _25_(severity)
+    local function _26_()
       return vim.diagnostic.goto_prev({severity = sev(severity)})
     end
-    return _6_
+    return _26_
   end
-  prev = _5_
+  prev = _25_
   vim.keymap.set({"n"}, "]d", next(), {desc = "Next diagnostic", silent = true})
   vim.keymap.set({"n"}, "[d", prev(), {desc = "Prev diagnostic", silent = true})
   vim.keymap.set({"n"}, "]e", next("ERROR"), {desc = "Next error", silent = true})
@@ -89,25 +146,34 @@ do
   vim.keymap.set({"n"}, "[w", prev("WARN"), {desc = "Prev warning", silent = true})
 end
 local toggle
-local function _7_(opt)
-  local function _8_()
-    vim.opt_local[opt] = not (vim.opt_local[opt]):get()
+local function _27_(opt)
+  local function _28_()
+    vim.opt_local[opt] = not vim.opt_local[opt]:get()
     return nil
   end
-  return _8_
+  return _28_
 end
-toggle = _7_
+toggle = _27_
 vim.keymap.set({"n"}, "<leader>us", toggle("spell"), {desc = "Toggle spell", silent = true})
 vim.keymap.set({"n"}, "<leader>uw", toggle("wrap"), {desc = "Toggle wrap", silent = true})
 vim.keymap.set({"n"}, "<leader>ur", toggle("relativenumber"), {desc = "Toggle relative numbers", silent = true})
 vim.keymap.set({"n"}, "<leader>un", toggle("number"), {desc = "Toggle line numbers", silent = true})
-vim.keymap.set({"n"}, "<leader>uc", "<cmd>ColorizerToggle<cr>", {desc = "Toggle colorizer", silent = true})
 vim.keymap.set({"n"}, "<leader>ux", "<cmd>TSContextToggle<cr>", {desc = "Toggle context", silent = true})
 vim.keymap.set({"n"}, "<leader>ub", "<cmd>Barbecue toggle<cr>", {desc = "Toggle breadcrumbs", silent = true})
-vim.keymap.set({"n"}, "<leader>uz", "<cmd>ZenMode<cr>", {desc = "Toggle zen mode", silent = true})
-vim.keymap.set({"n"}, "<leader>uf", "<cmd>Twilight<cr>", {desc = "Toggle focus", silent = true})
-local function _9_()
-  if ((vim.opt_local.conceallevel):get() == 0) then
+local function _29_()
+  return _G.Snacks.zen()
+end
+vim.keymap.set({"n"}, "<leader>uz", _29_, {desc = "Toggle zen mode", silent = true})
+local function _30_()
+  if _G.Snacks.dim.enabled then
+    return _G.Snacks.dim.disable()
+  else
+    return _G.Snacks.dim.enable()
+  end
+end
+vim.keymap.set({"n"}, "<leader>ud", _30_, {desc = "Toggle dim", silent = true})
+local function _32_()
+  if (vim.opt_local.conceallevel:get() == 0) then
     vim.opt_local["conceallevel"] = 3
     return nil
   else
@@ -115,4 +181,4 @@ local function _9_()
     return nil
   end
 end
-return vim.keymap.set({"n"}, "<leader>uh", _9_, {desc = "Toggle conceal", silent = true})
+return vim.keymap.set({"n"}, "<leader>uh", _32_, {desc = "Toggle conceal", silent = true})

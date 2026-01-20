@@ -25,37 +25,16 @@
   new-virt-text)
 
 (local ft-exclude [:help
-                   :dashboard
-                   :neo-tree
+                   :snacks_dashboard
+                   :snacks_picker_list
                    :Trouble
                    :lazy
                    :mason
-                   :toggleterm])
+                   :snacks_terminal])
 
 (plug! :kevinhwang91/nvim-ufo
        {:event [:BufReadPost :BufNewFile]
-        :dependencies [:kevinhwang91/promise-async
-                       (plug! :luukvbaal/statuscol.nvim
-                              {:config (fn []
-                                         (let [builtin (require :statuscol.builtin)]
-                                           ((require! :statuscol :setup) {:ft_ignore ft-exclude
-                                                                          :relculright true
-                                                                          :segments [{:sign {:name [:Diagnostic]
-                                                                                             :maxwidth 1
-                                                                                             :auto true}
-                                                                                      :click "v:lua.ScFa"}
-                                                                                     {:sign {:namespace [:gitsigns]
-                                                                                             :maxwidth 1
-                                                                                             :auto true}
-                                                                                      :click "v:lua:ScSa"}
-                                                                                     {:text [builtin.foldfunc
-                                                                                             "  "]
-                                                                                      :click "v:lua.ScFa"}
-                                                                                     {:sign {:maxwidth 1
-                                                                                             :auto true}
-                                                                                      :text [builtin.lnumfunc
-                                                                                             "  "]
-                                                                                      :click "v:lua.ScLa"}]})))})]
+        :dependencies [:kevinhwang91/promise-async]
         :opts {:fold_virt_text_handler handler
                :provider_selector (fn [_ ft _]
                                     (let [nofold [:markdown

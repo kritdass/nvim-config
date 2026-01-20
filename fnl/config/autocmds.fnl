@@ -11,7 +11,5 @@
                        (fn [] (setlocal! :wrap)
                          (setlocal! :spell))])
 
-((require! :colorizer :setup))
-
 (augroup! :typst-preview [[:BufRead :BufNewFile] :*.typ :TypstPreview]
           [[:BufWipeout] :*.typ :TypstPreviewStop])
