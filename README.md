@@ -15,6 +15,7 @@ This repository stores my Neovim configuration meant for general programming use
 - 📑 Buffer line with [bufferline](https://github.com/akinsho/bufferline.nvim)
 - 🍞 Breadcrumbs with [barbecue](https://github.com/utilyre/barbecue.nvim)
 - ⚡ Jumping and searching with [flash](https://github.com/folke/flash.nvim)
+- 👆 Multiple cursors with [multicursors](https://github.com/jake-stewart/multicursor.nvim)
 - 🛑 Git integration with [gitsigns](https://github.com/lewis6991/gitsigns.nvim)
 - 🛸 Better folding with [nvim-ufo](https://github.com/kevinhwang91/nvim-ufo)
 - ⌨️ Key maps registered with [which-key](https://github.com/folke/which-key.nvim)

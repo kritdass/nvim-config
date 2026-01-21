@@ -7,6 +7,7 @@ local function _1_()
   return _G.Snacks.lazygit()
 end
 _G.vim.keymap.set({"n", "t"}, "<leader>g", _1_, {desc = "Lazygit"})
+_G.vim.keymap.set({"n"}, "<leader>T", "<cmd>Typr<cr>", {desc = "Typr"})
 local function _2_()
   return _G.Snacks.terminal(nil, {win = {position = "bottom", height = 0.3}})
 end

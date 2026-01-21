@@ -6,6 +6,8 @@
 (map! [:n] :<leader>m :<cmd>Mason<cr> :Mason)
 
 (map! [:nt] :<leader>g (fn [] ((. _G.Snacks :lazygit))) :Lazygit)
+(map! [:n] :<leader>T :<cmd>Typr<cr> :Typr)
+
 (map! [:n] :<leader>th
       (fn []
         ((. _G.Snacks :terminal) nil {:win {:position :bottom :height 0.3}}))
