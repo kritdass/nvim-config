@@ -1,4 +1,4 @@
-(import-macros {: plug! : vim! : require!} :macros)
+(import-macros {: plug! : require!} :macros)
 
 (plug! :lewis6991/gitsigns.nvim
        {:event [:BufReadPre :BufNewFile]
@@ -6,8 +6,8 @@
                             ((require! :scrollbar.handlers.gitsigns :setup))
                             (let [gs package.loaded.gitsigns
                                   map (fn [mode lhs rhs desc]
-                                        ((vim! :keymap.set) mode lhs rhs
-                                                            {: buffer : desc}))]
+                                        (_G.vim.keymap.set mode lhs rhs
+                                                           {: buffer : desc}))]
                               (map :n :<leader>hg :<cmd>Lazygit<cr> :Lazygit)
                               (map :n "]h" gs.next_hunk "Next hunk")
                               (map :n "[h" gs.next_hunk "Prev hunk")

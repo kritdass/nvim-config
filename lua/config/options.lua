@@ -38,10 +38,7 @@ _G.vim.opt["updatetime"] = 300
 _G.vim.opt.shortmess:append("c")
 _G.vim.opt["scrolloff"] = 8
 _G.vim.opt["sidescrolloff"] = 8
-if (_G.vim.fn.has("nvim-0.10") == 1) then
-  _G.vim.opt["smoothscroll"] = true
-else
-end
+_G.vim.opt["smoothscroll"] = true
 _G.vim.opt["splitkeep"] = "screen"
 _G.vim.opt["splitbelow"] = true
 _G.vim.opt["splitright"] = true

@@ -1,6 +1,5 @@
 -- [nfnl] fnl/plugins/lsp.fnl
 local function _1_()
-  local language_servers = _G.vim.lsp.get_clients()
   local blink_capabilities = require("blink.cmp").get_lsp_capabilities
   return _G.vim.lsp.config("*", {capabilities = blink_capabilities({textDocument = {foldingRange = {lineFoldingOnly = true, dynamicRegistration = false}}})})
 end

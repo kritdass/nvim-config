@@ -117,7 +117,7 @@ do
   local sev
   local function _21_(severity)
     if severity then
-      return __fnl_global__vim_21("diagnostic.severity")[severity]
+      return _G.vim.diagnostic.severity[severity]
     else
       return nil
     end
@@ -126,7 +126,7 @@ do
   local next
   local function _23_(severity)
     local function _24_()
-      return __fnl_global__vim_21("diagnostic.goto_next")({severity = sev(severity)})
+      return _G.vim.diagnostic.goto_next({severity = sev(severity)})
     end
     return _24_
   end
@@ -134,7 +134,7 @@ do
   local prev
   local function _25_(severity)
     local function _26_()
-      return __fnl_global__vim_21("diagnostic.goto_prev")({severity = sev(severity)})
+      return _G.vim.diagnostic.goto_prev({severity = sev(severity)})
     end
     return _26_
   end

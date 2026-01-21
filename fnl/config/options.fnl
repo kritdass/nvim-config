@@ -1,4 +1,4 @@
-(import-macros {: set! : set+ : color! : vim!} :macros)
+(import-macros {: set! : set+ : color!} :macros)
 
 (color! :onelight)
 
@@ -53,8 +53,7 @@
 (set! :scrolloff 8)
 (set! :sidescrolloff 8)
 
-(when (= ((vim! :fn.has) :nvim-0.10) 1)
-  (set! :smoothscroll))
+(set! :smoothscroll)
 
 (set! :splitkeep :screen)
 (set! :splitbelow)
@@ -72,4 +71,4 @@
 (let [signs {:Hint "󰌵" :Info "󰙎" :Warn "" :Error ""}]
   (each [type icon (pairs signs)]
     (let [hl (.. :DiagnosticSign type)]
-      ((vim! :fn.sign_define) hl {:text icon :texthl hl :numhl hl}))))
+      (_G.vim.fn.sign_define hl {:text icon :texthl hl :numhl hl}))))

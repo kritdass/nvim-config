@@ -15,6 +15,14 @@ do
   end
   _G.vim.api.nvim_create_autocmd({"FileType"}, {callback = _4_, group = group_3_, pattern = {"markdown", "tex", "text", "trouble", "typst"}})
 end
-local group_5_ = _G.vim.api.nvim_create_augroup("typst-preview", {clear = true})
-_G.vim.api.nvim_create_autocmd({"BufRead", "BufNewFile"}, {command = "TypstPreview", group = group_5_, pattern = "*.typ"})
-return _G.vim.api.nvim_create_autocmd({"BufWipeout"}, {command = "TypstPreviewStop", group = group_5_, pattern = "*.typ"})
+do
+  local group_5_ = _G.vim.api.nvim_create_augroup("typst-preview", {clear = true})
+  _G.vim.api.nvim_create_autocmd({"BufRead", "BufNewFile"}, {command = "TypstPreview", group = group_5_, pattern = "*.typ"})
+  _G.vim.api.nvim_create_autocmd({"BufWipeout"}, {command = "TypstPreviewStop", group = group_5_, pattern = "*.typ"})
+end
+local group_6_ = _G.vim.api.nvim_create_augroup("disable-typr-completion", {clear = true})
+local function _7_()
+  _G.vim.b["completion"] = false
+  return nil
+end
+return _G.vim.api.nvim_create_autocmd({"FileType"}, {callback = _7_, group = group_6_, pattern = {"typr"}})

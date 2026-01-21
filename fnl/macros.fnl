@@ -6,9 +6,6 @@
 (fn plug! [plugin ?opts]
   (doto (or ?opts {}) (tset 1 plugin)))
 
-(fn vim! [cmd]
-  (sym (.. :_G.vim. cmd)))
-
 (fn require! [plugin item]
   `(. (require ,plugin) ,item))
 
@@ -88,7 +85,6 @@
 {: hl!
  : plug!
  : require!
- : vim!
  : get!
  : set!
  : setlocal!

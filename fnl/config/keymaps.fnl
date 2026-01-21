@@ -106,13 +106,13 @@
 (map! [:n] :<leader>q<tab> :<cmd>tabclose<cr> "Quit tab")
 
 (let [sev (fn [severity]
-            (if severity (. (vim! :diagnostic.severity) severity) nil))
+            (if severity (. _G.vim.diagnostic.severity severity) nil))
       next (fn [severity]
              (fn []
-               ((vim! :diagnostic.goto_next) {:severity (sev severity)})))
+               (_G.vim.diagnostic.goto_next {:severity (sev severity)})))
       prev (fn [severity]
              (fn []
-               ((vim! :diagnostic.goto_prev) {:severity (sev severity)})))]
+               (_G.vim.diagnostic.goto_prev {:severity (sev severity)})))]
   (map! [:n] "]d" (next) "Next diagnostic")
   (map! [:n] "[d" (prev) "Prev diagnostic")
   (map! [:n] "]e" (next :ERROR) "Next error")

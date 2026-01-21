@@ -1,16 +1,15 @@
-(import-macros {: plug! : require! : vim! : augroup!} :macros)
+(import-macros {: plug! : require!} :macros)
 
 [(plug! :mason-org/mason.nvim {:cmd :Mason :opts {}})
  (plug! :neovim/nvim-lspconfig
         {:event [:BufReadPre :BufNewFile]
          :opts {}
          :config (fn []
-                   (let [language-servers ((vim! :lsp.get_clients))
-                         blink-capabilities (. (require :blink.cmp)
+                   (let [blink-capabilities (. (require :blink.cmp)
                                                :get_lsp_capabilities)]
-                     ((vim! :lsp.config) "*"
-                                         {:capabilities (blink-capabilities {:textDocument {:foldingRange {:dynamicRegistration false
-                                                                                                           :lineFoldingOnly true}}})})))
+                     (_G.vim.lsp.config "*"
+                                        {:capabilities (blink-capabilities {:textDocument {:foldingRange {:dynamicRegistration false
+                                                                                                          :lineFoldingOnly true}}})})))
          :dependencies [(plug! :mason-org/mason-lspconfig.nvim {:opts {}})
                         :mason-org/mason-lspconfig.nvim]
          :keys (let [map (fn [mode key action desc]
@@ -18,7 +17,7 @@
                  (map :n :K
                       (fn []
                         (when (not ((require! :ufo :peekFoldedLinesUnderCursor)))
-                          ((vim! :lsp.buf.hover)))) :Hover)
+                          (_G.vim.lsp.buf.hover))) :Hover)
                  (map :n :gd "<cmd>lua vim.lsp.buf.definition()<cr>"
                       "Goto definition")
                  (map :n :gD "<cmd>lua vim.lsp.buf.declaration()<cr>"
