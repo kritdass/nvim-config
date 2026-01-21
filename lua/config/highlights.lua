@@ -1,10 +1,5 @@
 -- [nfnl] fnl/config/highlights.fnl
 local colors = require("config.colors")
-_G.vim.api.nvim_set_hl(0, "DashboardHeader", {fg = colors.blue})
-_G.vim.api.nvim_set_hl(0, "DashboardKey", {fg = colors.purple})
-_G.vim.api.nvim_set_hl(0, "DashboardIcon", {fg = colors.green})
-_G.vim.api.nvim_set_hl(0, "DashboardDesc", {fg = colors.green})
-_G.vim.api.nvim_set_hl(0, "DashboardFooter", {fg = colors.yellow})
 _G.vim.api.nvim_set_hl(0, "BlinkCmpMenu", {bg = "#FFFFFF", fg = "#383A42"})
 _G.vim.api.nvim_set_hl(0, "BlinkCmpMenuSelection", {bg = "#F0F4FC", fg = "NONE", bold = true})
 _G.vim.api.nvim_set_hl(0, "BlinkCmpMenuBorder", {fg = "#E5E5E5", bg = "#FFFFFF"})

@@ -1,12 +1,6 @@
 (import-macros {: hl!} :macros)
 (local colors (require :config.colors))
 
-(hl! :DashboardHeader {:fg colors.blue})
-(hl! :DashboardKey {:fg colors.purple})
-(hl! :DashboardIcon {:fg colors.green})
-(hl! :DashboardDesc {:fg colors.green})
-(hl! :DashboardFooter {:fg colors.yellow})
-
 (hl! :BlinkCmpMenu {:bg "#FFFFFF" :fg "#383A42"})
 (hl! :BlinkCmpMenuSelection {:bg "#F0F4FC" :fg :NONE :bold true})
 (hl! :BlinkCmpMenuBorder {:fg "#E5E5E5" :bg "#FFFFFF"})
