@@ -57,9 +57,9 @@ local function _12_()
 end
 _G.vim.keymap.set({"n"}, "<leader>fr", _12_, {desc = "Recent files"})
 local function _13_()
-  return _G.Snacks.picker.undo()
+  return _G.Snacks.picker.todo_comments()
 end
-_G.vim.keymap.set({"n"}, "<leader>fu", _13_, {desc = "Undo history"})
+_G.vim.keymap.set({"n"}, "<leader>fu", _13_, {desc = "Todos"})
 local function _14_()
   return _G.Snacks.picker.grep()
 end
@@ -113,32 +113,40 @@ _G.vim.keymap.set({"n"}, "<leader>qw", "<C-w>c", {desc = "Quit window"})
 _G.vim.keymap.set({"n"}, "<leader>qb", "<cmd>bdelete<cr>", {desc = "Quit buffer"})
 _G.vim.keymap.set({"n"}, "<leader>qt", "<cmd>tabclose<cr>", {desc = "Quit tab"})
 _G.vim.keymap.set({"n"}, "<leader>q<tab>", "<cmd>tabclose<cr>", {desc = "Quit tab"})
+local function _21_()
+  return require("todo-comments").jump_next()
+end
+_G.vim.keymap.set({"n"}, "]t", _21_, {desc = "Next todo"})
+local function _22_()
+  return require("todo-comments").jump_prev()
+end
+_G.vim.keymap.set({"n"}, "[t", _22_, {desc = "Next todo"})
 do
   local sev
-  local function _21_(severity)
+  local function _23_(severity)
     if severity then
       return _G.vim.diagnostic.severity[severity]
     else
       return nil
     end
   end
-  sev = _21_
+  sev = _23_
   local next
-  local function _23_(severity)
-    local function _24_()
-      return _G.vim.diagnostic.goto_next({severity = sev(severity)})
-    end
-    return _24_
-  end
-  next = _23_
-  local prev
   local function _25_(severity)
     local function _26_()
-      return _G.vim.diagnostic.goto_prev({severity = sev(severity)})
+      return _G.vim.diagnostic.goto_next({severity = sev(severity)})
     end
     return _26_
   end
-  prev = _25_
+  next = _25_
+  local prev
+  local function _27_(severity)
+    local function _28_()
+      return _G.vim.diagnostic.goto_prev({severity = sev(severity)})
+    end
+    return _28_
+  end
+  prev = _27_
   _G.vim.keymap.set({"n"}, "]d", next(), {desc = "Next diagnostic"})
   _G.vim.keymap.set({"n"}, "[d", prev(), {desc = "Prev diagnostic"})
   _G.vim.keymap.set({"n"}, "]e", next("ERROR"), {desc = "Next error"})
@@ -147,33 +155,33 @@ do
   _G.vim.keymap.set({"n"}, "[w", prev("WARN"), {desc = "Prev warning"})
 end
 local toggle
-local function _27_(opt)
-  local function _28_()
+local function _29_(opt)
+  local function _30_()
     _G.vim.opt_local["opt"] = not _G.vim.opt_local[opt]:get()
     return nil
   end
-  return _28_
+  return _30_
 end
-toggle = _27_
+toggle = _29_
 _G.vim.keymap.set({"n"}, "<leader>us", toggle("spell"), {desc = "Toggle spell"})
 _G.vim.keymap.set({"n"}, "<leader>uw", toggle("wrap"), {desc = "Toggle wrap"})
 _G.vim.keymap.set({"n"}, "<leader>ur", toggle("relativenumber"), {desc = "Toggle relative numbers"})
 _G.vim.keymap.set({"n"}, "<leader>un", toggle("number"), {desc = "Toggle line numbers"})
 _G.vim.keymap.set({"n"}, "<leader>ux", "<cmd>TSContextToggle<cr>", {desc = "Toggle context"})
 _G.vim.keymap.set({"n"}, "<leader>ub", "<cmd>Barbecue toggle<cr>", {desc = "Toggle breadcrumbs"})
-local function _29_()
+local function _31_()
   return _G.Snacks.zen()
 end
-_G.vim.keymap.set({"n"}, "<leader>uz", _29_, {desc = "Toggle zen mode"})
-local function _30_()
+_G.vim.keymap.set({"n"}, "<leader>uz", _31_, {desc = "Toggle zen mode"})
+local function _32_()
   if _G.Snacks.dim.enabled then
     return _G.Snacks.dim.disable()
   else
     return _G.Snacks.dim.enable()
   end
 end
-_G.vim.keymap.set({"n"}, "<leader>ud", _30_, {desc = "Toggle dim"})
-local function _32_()
+_G.vim.keymap.set({"n"}, "<leader>ud", _32_, {desc = "Toggle dim"})
+local function _34_()
   if (_G.vim.opt_local.conceallevel:get() == 0) then
     _G.vim.opt_local["conceallevel"] = 3
     return nil
@@ -182,4 +190,4 @@ local function _32_()
     return nil
   end
 end
-return _G.vim.keymap.set({"n"}, "<leader>uh", _32_, {desc = "Toggle conceal"})
+return _G.vim.keymap.set({"n"}, "<leader>uh", _34_, {desc = "Toggle conceal"})

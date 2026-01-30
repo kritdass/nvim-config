@@ -4,7 +4,7 @@ This repository stores my Neovim configuration meant for general programming use
 
 ## Features & Plugins
 
-- 🚀 Fast (20-30 ms startup time)
+- 🚀 Fast (10–20 ms startup time)
 - 🌿 Written in [Fennel](https://fennel-lang.org) via [nfnl](https://github.com/Olical/nfnl)
 - 💤 Lazy-loading and package management with [lazy](https://github.com/folke/lazy.nvim)
 - 🍿 Several QoL utilities with [snacks](https://github.com/folke/snacks.nvim)

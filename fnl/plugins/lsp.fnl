@@ -13,30 +13,30 @@
          :dependencies [(plug! :mason-org/mason-lspconfig.nvim {:opts {}})
                         :mason-org/mason-lspconfig.nvim]
          :keys (let [map (fn [mode key action desc]
-                           {1 key 2 action mode :mode : desc})]
-                 (map :n :K
-                      (fn []
-                        (when (not ((require! :ufo :peekFoldedLinesUnderCursor)))
-                          (_G.vim.lsp.buf.hover))) :Hover)
-                 (map :n :gd "<cmd>lua vim.lsp.buf.definition()<cr>"
-                      "Goto definition")
-                 (map :n :gD "<cmd>lua vim.lsp.buf.declaration()<cr>"
-                      "Goto declaration")
-                 (map :n :gi "<cmd>lua vim.lsp.buf.implementation()<cr>"
-                      "Goto implementation")
-                 (map :n :go "<cmd>lua vim.lsp.buf.type_definition()<cr>"
-                      "Goto type definition")
-                 (map :n :gr "<cmd>lua vim.lsp.buf.references()<cr>"
-                      "Goto references")
-                 (map :n :<leader>cr "<cmd>lua vim.lsp.buf.rename()<cr>"
-                      :Rename)
-                 (map :n :<leader>cf
-                      "<cmd>lua vim.lsp.buf.format({async = true})<cr>" :Format)
-                 (map :n :<leader>ca "<cmd>lua vim.lsp.buf.code_action()<cr>"
-                      "Code actions")
-                 (map :n :<leader>ct
+                           {1 key 2 action : mode : desc})]
+                 [(map :n :K
+                       (fn []
+                         (when (not ((require! :ufo :peekFoldedLinesUnderCursor)))
+                           (_G.vim.lsp.buf.hover))) :Hover)
+                  (map :n :gd "<cmd>lua vim.lsp.buf.definition()<cr>"
+                       "Goto definition")
+                  (map :n :gD "<cmd>lua vim.lsp.buf.declaration()<cr>"
+                       "Goto declaration")
+                  (map :n :gi "<cmd>lua vim.lsp.buf.implementation()<cr>"
+                       "Goto implementation")
+                  (map :n :go "<cmd>lua vim.lsp.buf.type_definition()<cr>"
+                       "Goto type definition")
+                  (map :n :gr "<cmd>lua vim.lsp.buf.references()<cr>"
+                       "Goto references")
+                  (map :n :<leader>cr "<cmd>lua vim.lsp.buf.rename()<cr>"
+                       :Rename)
+                  (map :n :<leader>cf
+                       "<cmd>lua vim.lsp.buf.format({async = true})<cr>" :Format)
+                  (map :n :<leader>ca "<cmd>lua vim.lsp.buf.code_action()<cr>"
+                       "Code actions")
+                  (map :n :<leader>ct
                       "<cmd>lua vim.lsp.buf.type_definition()<cr>"
-                      "Type definition"))})
+                      "Type definition")])})
  (plug! :saghen/blink.cmp
         {:event [:BufReadPre :BufNewFile]
          :version :1.*

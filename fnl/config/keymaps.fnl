@@ -58,7 +58,7 @@
 
 (map! [:n] :<leader>fr (fn [] ((. _G.Snacks.picker :recent))) "Recent files")
 
-(map! [:n] :<leader>fu (fn [] ((. _G.Snacks.picker :undo))) "Undo history")
+(map! [:n] :<leader>fu (fn [] ((. _G.Snacks.picker :todo_comments))) "Todos")
 
 (map! [:n] :<leader>ft (fn [] ((. _G.Snacks.picker :grep))) :Grep)
 
@@ -104,6 +104,9 @@
 (map! [:n] :<leader>qb :<cmd>bdelete<cr> "Quit buffer")
 (map! [:n] :<leader>qt :<cmd>tabclose<cr> "Quit tab")
 (map! [:n] :<leader>q<tab> :<cmd>tabclose<cr> "Quit tab")
+
+(map! [:n] "]t" (fn [] ((. (require :todo-comments) :jump_next))) "Next todo")
+(map! [:n] "[t" (fn [] ((. (require :todo-comments) :jump_prev))) "Next todo")
 
 (let [sev (fn [severity]
             (if severity (. _G.vim.diagnostic.severity severity) nil))
