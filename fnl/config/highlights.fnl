@@ -1,5 +1,4 @@
 (import-macros {: hl!} :macros)
-(local colors (require :config.colors))
 
 (hl! :BlinkCmpMenu {:bg "#FFFFFF" :fg "#383A42"})
 (hl! :BlinkCmpMenuSelection {:bg "#F0F4FC" :fg :NONE :bold true})
@@ -29,4 +28,3 @@
 (hl! :BlinkCmpKindFile {:fg "#4078F2" :bg :NONE})
 (hl! :BlinkCmpKindFolder {:fg "#4078F2" :bg :NONE})
 
-(hl! :SnacksDim {:fg "#D0D0D0"})

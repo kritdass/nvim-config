@@ -1,5 +1,4 @@
 -- [nfnl] fnl/config/highlights.fnl
-local colors = require("config.colors")
 _G.vim.api.nvim_set_hl(0, "BlinkCmpMenu", {bg = "#FFFFFF", fg = "#383A42"})
 _G.vim.api.nvim_set_hl(0, "BlinkCmpMenuSelection", {bg = "#F0F4FC", fg = "NONE", bold = true})
 _G.vim.api.nvim_set_hl(0, "BlinkCmpMenuBorder", {fg = "#E5E5E5", bg = "#FFFFFF"})
@@ -19,5 +18,4 @@ _G.vim.api.nvim_set_hl(0, "BlinkCmpKindSnippet", {fg = "#50A14F", bg = "NONE"})
 _G.vim.api.nvim_set_hl(0, "BlinkCmpKindString", {fg = "#50A14F", bg = "NONE"})
 _G.vim.api.nvim_set_hl(0, "BlinkCmpKindConstant", {fg = "#0184BC", bg = "NONE"})
 _G.vim.api.nvim_set_hl(0, "BlinkCmpKindFile", {fg = "#4078F2", bg = "NONE"})
-_G.vim.api.nvim_set_hl(0, "BlinkCmpKindFolder", {fg = "#4078F2", bg = "NONE"})
-return _G.vim.api.nvim_set_hl(0, "SnacksDim", {fg = "#D0D0D0"})
+return _G.vim.api.nvim_set_hl(0, "BlinkCmpKindFolder", {fg = "#4078F2", bg = "NONE"})

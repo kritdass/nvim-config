@@ -1,4 +1,4 @@
-(import-macros {: map! : setlocal! : get!} :macros)
+(import-macros {: map! : setlocal! : get! : hl!} :macros)
 
 (map! [:nixs :silent] :<C-s> "<cmd>:silent w<cr><esc>" "Save file")
 (map! [:n :silent] :<leader>s "<cmd>:silent w<cr><esc>" "Save file")
@@ -132,12 +132,14 @@
   (map! [:n] :<leader>un (toggle :number) "Toggle line numbers")
   (map! [:n] :<leader>ux :<cmd>TSContextToggle<cr> "Toggle context")
   (map! [:n] :<leader>ub "<cmd>Barbecue toggle<cr>" "Toggle breadcrumbs")
-  (map! [:n] :<leader>uz (fn [] ((. _G.Snacks :zen))) "Toggle zen mode")
+  (map! [:n] :<leader>uz (fn [] ((. _G.Snacks :zen)) (hl! :SnacksDim {:fg "#D0D0D0"})) "Toggle zen mode")
   (map! [:n] :<leader>ud
         (fn []
           (if (. _G.Snacks.dim :enabled)
               ((. _G.Snacks.dim :disable))
-              ((. _G.Snacks.dim :enable)))) "Toggle dim")
+              (do ((. _G.Snacks.dim :enable))
+                (hl! :SnacksDim {:fg "#D0D0D0"})))
+          "Toggle dim"))
   "Toggle dim"
   (map! [:n] :<leader>uh
         (fn []

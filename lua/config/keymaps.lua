@@ -170,17 +170,20 @@ _G.vim.keymap.set({"n"}, "<leader>un", toggle("number"), {desc = "Toggle line nu
 _G.vim.keymap.set({"n"}, "<leader>ux", "<cmd>TSContextToggle<cr>", {desc = "Toggle context"})
 _G.vim.keymap.set({"n"}, "<leader>ub", "<cmd>Barbecue toggle<cr>", {desc = "Toggle breadcrumbs"})
 local function _31_()
-  return _G.Snacks.zen()
+  _G.Snacks.zen()
+  return _G.vim.api.nvim_set_hl(0, "SnacksDim", {fg = "#D0D0D0"})
 end
 _G.vim.keymap.set({"n"}, "<leader>uz", _31_, {desc = "Toggle zen mode"})
 local function _32_()
   if _G.Snacks.dim.enabled then
-    return _G.Snacks.dim.disable()
+    _G.Snacks.dim.disable()
   else
-    return _G.Snacks.dim.enable()
+    _G.Snacks.dim.enable()
+    _G.vim.api.nvim_set_hl(0, "SnacksDim", {fg = "#D0D0D0"})
   end
+  return "Toggle dim"
 end
-_G.vim.keymap.set({"n"}, "<leader>ud", _32_, {desc = "Toggle dim"})
+_G.vim.keymap.set({"n"}, "<leader>ud", _32_, {})
 local function _34_()
   if (_G.vim.opt_local.conceallevel:get() == 0) then
     _G.vim.opt_local["conceallevel"] = 3
