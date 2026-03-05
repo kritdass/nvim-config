@@ -58,7 +58,7 @@
 
 (map! [:n] :<leader>fr (fn [] ((. _G.Snacks.picker :recent))) "Recent files")
 
-(map! [:n] :<leader>fu (fn [] ((. _G.Snacks.picker :todo_comments))) "Todos")
+(map! [:n] :<leader>fu (fn [] ((. _G.Snacks.picker :todo_comments))) :Todos)
 
 (map! [:n] :<leader>ft (fn [] ((. _G.Snacks.picker :grep))) :Grep)
 
@@ -105,8 +105,13 @@
 (map! [:n] :<leader>qt :<cmd>tabclose<cr> "Quit tab")
 (map! [:n] :<leader>q<tab> :<cmd>tabclose<cr> "Quit tab")
 
-(map! [:n] "]t" (fn [] ((. (require :todo-comments) :jump_next))) "Next todo")
-(map! [:n] "[t" (fn [] ((. (require :todo-comments) :jump_prev))) "Next todo")
+(map! [:n] "]t" (fn []
+                  ((. (require :todo-comments) :jump_next)))
+      "Next todo")
+
+(map! [:n] "[t" (fn []
+                  ((. (require :todo-comments) :jump_prev)))
+      "Next todo")
 
 (let [sev (fn [severity]
             (if severity (. _G.vim.diagnostic.severity severity) nil))
@@ -132,17 +137,33 @@
   (map! [:n] :<leader>un (toggle :number) "Toggle line numbers")
   (map! [:n] :<leader>ux :<cmd>TSContextToggle<cr> "Toggle context")
   (map! [:n] :<leader>ub "<cmd>Barbecue toggle<cr>" "Toggle breadcrumbs")
-  (map! [:n] :<leader>uz (fn [] ((. _G.Snacks :zen)) (hl! :SnacksDim {:fg "#D0D0D0"})) "Toggle zen mode")
-  (map! [:n] :<leader>ud
-        (fn []
-          (if (. _G.Snacks.dim :enabled)
-              ((. _G.Snacks.dim :disable))
-              (do ((. _G.Snacks.dim :enable))
-                (hl! :SnacksDim {:fg "#D0D0D0"})))
-          "Toggle dim"))
+  (map! [:n] :<leader>uz
+        (fn [] ((. _G.Snacks :zen)) (hl! :SnacksDim {:fg "#D0D0D0"}))
+        "Toggle zen mode")
+  (map! [:n] :<leader>ud (fn []
+                           (if (. _G.Snacks.dim :enabled)
+                               ((. _G.Snacks.dim :disable
+                                   (do
+                                     ((. _G.Snacks.dim :enable))
+                                     (hl! :SnacksDim {:fg "#D0D0D0"}))
+                                   "Toggle dim")))))
   "Toggle dim"
   (map! [:n] :<leader>uh
         (fn []
           (if (= (get! :conceallevel) 0)
               (setlocal! :conceallevel 3)
               (setlocal! :conceallevel 0))) "Toggle conceal"))
+
+(let [select (require :nvim-treesitter-textobjects.select)]
+  (map! [:xo] :af
+        (fn [] (select.select_textobject "@function.outer" :textobjects))
+        "around function")
+  (map! [:xo] :if
+        (fn [] (select.select_textobject "@function.inner" :textobjects))
+        "inner function")
+  (map! [:xo] :ac
+        (fn [] (select.select_textobject "@class.outer" :textobjects))
+        "around class")
+  (map! [:xo] :ic
+        (fn [] (select.select_textobject "@class.inner" :textobjects))
+        "inner class"))

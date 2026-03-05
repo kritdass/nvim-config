@@ -154,43 +154,65 @@ do
   _G.vim.keymap.set({"n"}, "]w", next("WARN"), {desc = "Next warning"})
   _G.vim.keymap.set({"n"}, "[w", prev("WARN"), {desc = "Prev warning"})
 end
-local toggle
-local function _29_(opt)
-  local function _30_()
-    _G.vim.opt_local["opt"] = not _G.vim.opt_local[opt]:get()
-    return nil
+do
+  local toggle
+  local function _29_(opt)
+    local function _30_()
+      _G.vim.opt_local["opt"] = not _G.vim.opt_local[opt]:get()
+      return nil
+    end
+    return _30_
   end
-  return _30_
-end
-toggle = _29_
-_G.vim.keymap.set({"n"}, "<leader>us", toggle("spell"), {desc = "Toggle spell"})
-_G.vim.keymap.set({"n"}, "<leader>uw", toggle("wrap"), {desc = "Toggle wrap"})
-_G.vim.keymap.set({"n"}, "<leader>ur", toggle("relativenumber"), {desc = "Toggle relative numbers"})
-_G.vim.keymap.set({"n"}, "<leader>un", toggle("number"), {desc = "Toggle line numbers"})
-_G.vim.keymap.set({"n"}, "<leader>ux", "<cmd>TSContextToggle<cr>", {desc = "Toggle context"})
-_G.vim.keymap.set({"n"}, "<leader>ub", "<cmd>Barbecue toggle<cr>", {desc = "Toggle breadcrumbs"})
-local function _31_()
-  _G.Snacks.zen()
-  return _G.vim.api.nvim_set_hl(0, "SnacksDim", {fg = "#D0D0D0"})
-end
-_G.vim.keymap.set({"n"}, "<leader>uz", _31_, {desc = "Toggle zen mode"})
-local function _32_()
-  if _G.Snacks.dim.enabled then
-    _G.Snacks.dim.disable()
-  else
-    _G.Snacks.dim.enable()
-    _G.vim.api.nvim_set_hl(0, "SnacksDim", {fg = "#D0D0D0"})
+  toggle = _29_
+  _G.vim.keymap.set({"n"}, "<leader>us", toggle("spell"), {desc = "Toggle spell"})
+  _G.vim.keymap.set({"n"}, "<leader>uw", toggle("wrap"), {desc = "Toggle wrap"})
+  _G.vim.keymap.set({"n"}, "<leader>ur", toggle("relativenumber"), {desc = "Toggle relative numbers"})
+  _G.vim.keymap.set({"n"}, "<leader>un", toggle("number"), {desc = "Toggle line numbers"})
+  _G.vim.keymap.set({"n"}, "<leader>ux", "<cmd>TSContextToggle<cr>", {desc = "Toggle context"})
+  _G.vim.keymap.set({"n"}, "<leader>ub", "<cmd>Barbecue toggle<cr>", {desc = "Toggle breadcrumbs"})
+  local function _31_()
+    _G.Snacks.zen()
+    return _G.vim.api.nvim_set_hl(0, "SnacksDim", {fg = "#D0D0D0"})
   end
-  return "Toggle dim"
-end
-_G.vim.keymap.set({"n"}, "<leader>ud", _32_, {})
-local function _34_()
-  if (_G.vim.opt_local.conceallevel:get() == 0) then
-    _G.vim.opt_local["conceallevel"] = 3
-    return nil
-  else
-    _G.vim.opt_local["conceallevel"] = 0
-    return nil
+  _G.vim.keymap.set({"n"}, "<leader>uz", _31_, {desc = "Toggle zen mode"})
+  local function _32_()
+    if _G.Snacks.dim.enabled then
+      local _33_
+      do
+        _G.Snacks.dim.enable()
+        _33_ = _G.vim.api.nvim_set_hl(0, "SnacksDim", {fg = "#D0D0D0"})
+      end
+      return _G.Snacks.dim.disable[_33_]["Toggle dim"]()
+    else
+      return nil
+    end
   end
+  _G.vim.keymap.set({"n"}, "<leader>ud", _32_, {})
+  local function _35_()
+    if (_G.vim.opt_local.conceallevel:get() == 0) then
+      _G.vim.opt_local["conceallevel"] = 3
+      return nil
+    else
+      _G.vim.opt_local["conceallevel"] = 0
+      return nil
+    end
+  end
+  _G.vim.keymap.set({"n"}, "<leader>uh", _35_, {desc = "Toggle conceal"})
 end
-return _G.vim.keymap.set({"n"}, "<leader>uh", _34_, {desc = "Toggle conceal"})
+local select = require("nvim-treesitter-textobjects.select")
+local function _37_()
+  return select.select_textobject("@function.outer", "textobjects")
+end
+_G.vim.keymap.set({"x", "o"}, "af", _37_, {desc = "around function"})
+local function _38_()
+  return select.select_textobject("@function.inner", "textobjects")
+end
+_G.vim.keymap.set({"x", "o"}, "if", _38_, {desc = "inner function"})
+local function _39_()
+  return select.select_textobject("@class.outer", "textobjects")
+end
+_G.vim.keymap.set({"x", "o"}, "ac", _39_, {desc = "around class"})
+local function _40_()
+  return select.select_textobject("@class.inner", "textobjects")
+end
+return _G.vim.keymap.set({"x", "o"}, "ic", _40_, {desc = "inner class"})
