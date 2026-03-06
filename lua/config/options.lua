@@ -1,5 +1,8 @@
 -- [nfnl] fnl/config/options.fnl
-_G.vim.cmd.colorscheme("onelight")
+local function _1_()
+  return require("matugen").setup()
+end
+_G.vim.schedule(_1_)
 _G.vim.opt["number"] = true
 _G.vim.opt["relativenumber"] = true
 _G.vim.opt["cursorline"] = true
@@ -24,7 +27,7 @@ _G.vim.opt["smartcase"] = true
 _G.vim.opt["termguicolors"] = true
 _G.vim.opt["spelllang"] = "en"
 _G.vim.opt["fileencoding"] = "utf-8"
-_G.vim.opt["guifont"] = "JetBrainsMono Nerd Font:h13"
+_G.vim.opt["guifont"] = "Iosevka:h13"
 _G.vim.opt["clipboard"] = "unnamedplus"
 _G.vim.opt["completeopt"] = "menu,menuone,noselect"
 _G.vim.opt["confirm"] = true

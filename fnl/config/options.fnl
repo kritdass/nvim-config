@@ -1,6 +1,8 @@
-(import-macros {: set! : set+ : color!} :macros)
+(import-macros {: set! : set+} :macros)
 
-(color! :onelight)
+(_G.vim.schedule 
+  (fn [] 
+    ((. (require :matugen) :setup))))
 
 (set! :number)
 (set! :relativenumber)
@@ -31,7 +33,7 @@
 (set! :termguicolors)
 (set! :spelllang :en)
 (set! :fileencoding :utf-8)
-(set! :guifont "JetBrainsMono Nerd Font:h13")
+(set! :guifont "Iosevka:h13")
 
 (set! :clipboard :unnamedplus)
 (set! :completeopt "menu,menuone,noselect")
