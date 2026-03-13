@@ -1,8 +1,5 @@
 -- [nfnl] fnl/config/options.fnl
-local function _1_()
-  return require("matugen").setup()
-end
-_G.vim.schedule(_1_)
+_G.vim.cmd.colorscheme("rose-pine-dawn")
 _G.vim.opt["number"] = true
 _G.vim.opt["relativenumber"] = true
 _G.vim.opt["cursorline"] = true

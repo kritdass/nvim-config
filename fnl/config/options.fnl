@@ -1,8 +1,6 @@
-(import-macros {: set! : set+} :macros)
+(import-macros {: set! : set+ : color!} :macros)
 
-(_G.vim.schedule 
-  (fn [] 
-    ((. (require :matugen) :setup))))
+(color! :rose-pine-dawn)
 
 (set! :number)
 (set! :relativenumber)

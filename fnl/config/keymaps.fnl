@@ -1,4 +1,4 @@
-(import-macros {: map! : setlocal! : get! : hl!} :macros)
+(import-macros {: map! } :macros)
 
 (map! [:nixs :silent] :<C-s> "<cmd>:silent w<cr><esc>" "Save file")
 (map! [:n :silent] :<leader>s "<cmd>:silent w<cr><esc>" "Save file")
@@ -128,31 +128,17 @@
   (map! [:n] "]w" (next :WARN) "Next warning")
   (map! [:n] "[w" (prev :WARN) "Prev warning"))
 
-(let [toggle (fn [opt]
-               (fn []
-                 (setlocal! opt (not (get! opt)))))]
-  (map! [:n] :<leader>us (toggle :spell) "Toggle spell")
-  (map! [:n] :<leader>uw (toggle :wrap) "Toggle wrap")
-  (map! [:n] :<leader>ur (toggle :relativenumber) "Toggle relative numbers")
-  (map! [:n] :<leader>un (toggle :number) "Toggle line numbers")
-  (map! [:n] :<leader>ux :<cmd>TSContextToggle<cr> "Toggle context")
-  (map! [:n] :<leader>ub "<cmd>Barbecue toggle<cr>" "Toggle breadcrumbs")
-  (map! [:n] :<leader>uz
-        (fn [] ((. _G.Snacks :zen)) (hl! :SnacksDim {:fg "#D0D0D0"}))
-        "Toggle zen mode")
-  (map! [:n] :<leader>ud (fn []
-                           (if (. _G.Snacks.dim :enabled)
-                               ((. _G.Snacks.dim :disable
-                                   (do
-                                     ((. _G.Snacks.dim :enable))
-                                     (hl! :SnacksDim {:fg "#D0D0D0"}))
-                                   "Toggle dim")))))
-  "Toggle dim"
-  (map! [:n] :<leader>uh
-        (fn []
-          (if (= (get! :conceallevel) 0)
-              (setlocal! :conceallevel 3)
-              (setlocal! :conceallevel 0))) "Toggle conceal"))
+(: (_G.Snacks.toggle.option :spell {:name "Spelling"}) :map :<leader>us)
+(: (_G.Snacks.toggle.option :wrap {:name "Wrap"}) :map :<leader>uw)
+(: (_G.Snacks.toggle.option :relativenumber {:name "Relative Number"}) :map :<leader>ur)
+(: (_G.Snacks.toggle.option :conceallevel {:name "Conceal" :off 0 :on 3}) :map :<leader>uh)
+
+(: (_G.Snacks.toggle.line_number) :map :<leader>un)
+(: (_G.Snacks.toggle.zen) :map :<leader>uz)
+(: (_G.Snacks.toggle.dim) :map :<leader>ud)
+
+(map! [:n] :<leader>ux :<cmd>TSContextToggle<cr> "Toggle context")
+(map! [:n] :<leader>ub "<cmd>Barbecue toggle<cr>" "Toggle breadcrumbs")
 
 (let [select (require :nvim-treesitter-textobjects.select)]
   (map! [:xo] :af
